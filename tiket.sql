@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Mar 2026 pada 15.32
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 8.1.12
+-- Generation Time: Mar 31, 2026 at 08:06 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `announcements`
+-- Table structure for table `announcements`
 --
 
 CREATE TABLE `announcements` (
@@ -44,7 +44,7 @@ CREATE TABLE `announcements` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apptitles`
+-- Table structure for table `apptitles`
 --
 
 CREATE TABLE `apptitles` (
@@ -75,7 +75,7 @@ CREATE TABLE `apptitles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `apptitles`
+-- Dumping data for table `apptitles`
 --
 
 INSERT INTO `apptitles` (`id`, `searchtitle`, `searchsub`, `featurecheck`, `featuretitle`, `featuresub`, `testimonialcheck`, `testimonialtitle`, `testimonialsub`, `faqcheck`, `faqtitle`, `faqsub`, `articlecheck`, `articletitle`, `articlesub`, `checkbox`, `image`, `title`, `image1`, `image2`, `image3`, `image4`, `created_at`, `updated_at`) VALUES
@@ -84,7 +84,7 @@ INSERT INTO `apptitles` (`id`, `searchtitle`, `searchsub`, `featurecheck`, `feat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE `articles` (
@@ -104,7 +104,7 @@ CREATE TABLE `articles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `articles`
+-- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`id`, `title`, `category_id`, `message`, `tags`, `views`, `articleslug`, `subcategory`, `featureimage`, `status`, `privatemode`, `created_at`, `updated_at`) VALUES
@@ -134,7 +134,7 @@ INSERT INTO `articles` (`id`, `title`, `category_id`, `message`, `tags`, `views`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `articles_likes`
+-- Table structure for table `articles_likes`
 --
 
 CREATE TABLE `articles_likes` (
@@ -147,7 +147,7 @@ CREATE TABLE `articles_likes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `articles_likes`
+-- Dumping data for table `articles_likes`
 --
 
 INSERT INTO `articles_likes` (`id`, `user_id`, `article_id`, `rating`, `created_at`, `updated_at`) VALUES
@@ -194,7 +194,7 @@ INSERT INTO `articles_likes` (`id`, `user_id`, `article_id`, `rating`, `created_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `article_comments`
+-- Table structure for table `article_comments`
 --
 
 CREATE TABLE `article_comments` (
@@ -209,7 +209,7 @@ CREATE TABLE `article_comments` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `article_replies`
+-- Table structure for table `article_replies`
 --
 
 CREATE TABLE `article_replies` (
@@ -224,7 +224,7 @@ CREATE TABLE `article_replies` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bussinesshours`
+-- Table structure for table `bussinesshours`
 --
 
 CREATE TABLE `bussinesshours` (
@@ -241,7 +241,7 @@ CREATE TABLE `bussinesshours` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `callactions`
+-- Table structure for table `callactions`
 --
 
 CREATE TABLE `callactions` (
@@ -257,7 +257,7 @@ CREATE TABLE `callactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `callactions`
+-- Dumping data for table `callactions`
 --
 
 INSERT INTO `callactions` (`id`, `callcheck`, `title`, `subtitle`, `buttonname`, `buttonurl`, `image`, `created_at`, `updated_at`) VALUES
@@ -266,7 +266,7 @@ INSERT INTO `callactions` (`id`, `callcheck`, `title`, `subtitle`, `buttonname`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cannedmessages`
+-- Table structure for table `cannedmessages`
 --
 
 CREATE TABLE `cannedmessages` (
@@ -281,7 +281,7 @@ CREATE TABLE `cannedmessages` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -296,7 +296,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `display`, `categoryslug`, `priority`, `status`, `created_at`, `updated_at`) VALUES
@@ -307,7 +307,7 @@ INSERT INTO `categories` (`id`, `name`, `display`, `categoryslug`, `priority`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category_category_user`
+-- Table structure for table `category_category_user`
 --
 
 CREATE TABLE `category_category_user` (
@@ -318,7 +318,7 @@ CREATE TABLE `category_category_user` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `comments`
+-- Table structure for table `comments`
 --
 
 CREATE TABLE `comments` (
@@ -333,10 +333,19 @@ CREATE TABLE `comments` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `ticket_id`, `cust_id`, `user_id`, `comment`, `display`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, NULL, 1, 'test ajas', NULL, '2026-03-18 23:11:49', '2026-03-18 23:11:49', NULL),
+(2, 5, NULL, 1, 'halo halo reply', NULL, '2026-03-19 00:33:51', '2026-03-19 00:34:10', NULL),
+(3, 5, NULL, 1, 'harusnya ini ke L3', 1, '2026-03-19 00:34:10', '2026-03-19 00:34:10', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `contactforms`
+-- Table structure for table `contactforms`
 --
 
 CREATE TABLE `contactforms` (
@@ -354,7 +363,7 @@ CREATE TABLE `contactforms` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `countries`
+-- Table structure for table `countries`
 --
 
 CREATE TABLE `countries` (
@@ -366,7 +375,7 @@ CREATE TABLE `countries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `countries`
+-- Dumping data for table `countries`
 --
 
 INSERT INTO `countries` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUES
@@ -623,7 +632,7 @@ INSERT INTO `countries` (`id`, `name`, `code`, `created_at`, `updated_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customcssjs`
+-- Table structure for table `customcssjs`
 --
 
 CREATE TABLE `customcssjs` (
@@ -635,7 +644,7 @@ CREATE TABLE `customcssjs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `customcssjs`
+-- Dumping data for table `customcssjs`
 --
 
 INSERT INTO `customcssjs` (`id`, `name`, `value`, `created_at`, `updated_at`) VALUES
@@ -648,7 +657,7 @@ INSERT INTO `customcssjs` (`id`, `name`, `value`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -679,16 +688,18 @@ CREATE TABLE `customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `firstname`, `lastname`, `username`, `gender`, `provider_id`, `email`, `logintype`, `userType`, `voilated`, `status`, `phone`, `image`, `verified`, `password`, `last_login_at`, `inactive_date`, `last_logins_at`, `last_login_ip`, `country`, `timezone`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '', '', 'GUEST', NULL, NULL, 'tes@gmail.com', NULL, 'Guest', NULL, '1', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', 'UTC', NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19');
+(1, '', '', 'GUEST', NULL, NULL, 'tes@gmail.com', NULL, 'Guest', NULL, '1', NULL, NULL, 1, '$2y$10$cYEf3bDhW0Hx1dAnvxwKV./b0UcAOl1dpB7deR00bfHVqE4kV0QvC', '2026-03-21 06:56:11', NULL, '2026-03-21 06:56:11', '127.0.0.0', '', 'UTC', NULL, '2026-03-05 06:09:19', '2026-03-20 23:56:11'),
+(2, '', '', 'GUEST', NULL, NULL, 'test123@gmail.com', NULL, 'Guest', NULL, '1', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', 'UTC', NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+(3, 'User', 'Jasnikom', 'User Jasnikom', NULL, NULL, 'user@jasnikom.com', NULL, 'Customer', NULL, '1', NULL, NULL, 1, '$2y$10$/6ciI7/VKJrs62JwwEFFFeo9sclg/u8dN/dapW9r6L/Xfc9NJM33K', '2026-03-19 15:47:09', NULL, '2026-03-19 15:47:09', '180.243.6.55', NULL, NULL, NULL, '2026-03-19 08:46:43', '2026-03-19 08:47:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer_settings`
+-- Table structure for table `customer_settings`
 --
 
 CREATE TABLE `customer_settings` (
@@ -700,16 +711,17 @@ CREATE TABLE `customer_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `customer_settings`
+-- Dumping data for table `customer_settings`
 --
 
 INSERT INTO `customer_settings` (`id`, `custs_id`, `darkmode`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19');
+(1, 1, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19'),
+(2, 2, NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:09');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customfields`
+-- Table structure for table `customfields`
 --
 
 CREATE TABLE `customfields` (
@@ -725,10 +737,18 @@ CREATE TABLE `customfields` (
   `status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `customfields`
+--
+
+INSERT INTO `customfields` (`id`, `fieldnames`, `fieldtypes`, `fieldoptions`, `displaytypes`, `fieldrequired`, `fieldprivacy`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'Location', 'select', 'Aek Godang,Ambon,Atang Sandjaja,Backhaul MATSC,Backhaul New JATSC,Bandar Lampung,Bandung,Banjarmasin,Banjarmasin ATC,Bengkulu,Biak,Bima,Cirebon,Cirebon ATC,Curug,Dekai,Denpasar,DJU Hubud,Donggala,Elelim,Galela,Gorontalo,Gunung Nona (Ambon),Gunungsitoli (N', 'createticket', 1, 0, '2026-03-18 22:07:16', '2026-03-18 22:07:16', 1),
+(2, 'First Indication By User', 'select', 'Mini CME,Mini Link,Aplikasi,Network Backbone (FO - MW - VSAT)', 'createticket', 1, 0, '2026-03-18 22:07:47', '2026-03-19 09:09:12', 1);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customizeerrors`
+-- Table structure for table `customizeerrors`
 --
 
 CREATE TABLE `customizeerrors` (
@@ -740,7 +760,7 @@ CREATE TABLE `customizeerrors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `customizeerrors`
+-- Dumping data for table `customizeerrors`
 --
 
 INSERT INTO `customizeerrors` (`id`, `errorname`, `errorvalue`, `created_at`, `updated_at`) VALUES
@@ -753,7 +773,7 @@ INSERT INTO `customizeerrors` (`id`, `errorname`, `errorvalue`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `departments`
+-- Table structure for table `departments`
 --
 
 CREATE TABLE `departments` (
@@ -767,7 +787,7 @@ CREATE TABLE `departments` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `email_templates`
+-- Table structure for table `email_templates`
 --
 
 CREATE TABLE `email_templates` (
@@ -781,7 +801,7 @@ CREATE TABLE `email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `email_templates`
+-- Dumping data for table `email_templates`
 --
 
 INSERT INTO `email_templates` (`id`, `code`, `title`, `subject`, `body`, `created_at`, `updated_at`) VALUES
@@ -820,7 +840,7 @@ INSERT INTO `email_templates` (`id`, `code`, `title`, `subject`, `body`, `create
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `employeeratings`
+-- Table structure for table `employeeratings`
 --
 
 CREATE TABLE `employeeratings` (
@@ -835,7 +855,7 @@ CREATE TABLE `employeeratings` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `envatoapitoken`
+-- Table structure for table `envatoapitoken`
 --
 
 CREATE TABLE `envatoapitoken` (
@@ -848,7 +868,7 @@ CREATE TABLE `envatoapitoken` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `envatocategoryassign`
+-- Table structure for table `envatocategoryassign`
 --
 
 CREATE TABLE `envatocategoryassign` (
@@ -862,7 +882,7 @@ CREATE TABLE `envatocategoryassign` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `faq_categories`
+-- Table structure for table `faq_categories`
 --
 
 CREATE TABLE `faq_categories` (
@@ -877,7 +897,7 @@ CREATE TABLE `faq_categories` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `faq_list`
+-- Table structure for table `faq_list`
 --
 
 CREATE TABLE `faq_list` (
@@ -892,7 +912,7 @@ CREATE TABLE `faq_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `faq_list`
+-- Dumping data for table `faq_list`
 --
 
 INSERT INTO `faq_list` (`id`, `question`, `answer`, `faqcat_id`, `status`, `privatemode`, `created_at`, `updated_at`) VALUES
@@ -907,7 +927,7 @@ INSERT INTO `faq_list` (`id`, `question`, `answer`, `faqcat_id`, `status`, `priv
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `feature_boxes`
+-- Table structure for table `feature_boxes`
 --
 
 CREATE TABLE `feature_boxes` (
@@ -922,7 +942,7 @@ CREATE TABLE `feature_boxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `feature_boxes`
+-- Dumping data for table `feature_boxes`
 --
 
 INSERT INTO `feature_boxes` (`id`, `title`, `subtitle`, `featureboxurl`, `url_checkbox`, `image`, `created_at`, `updated_at`) VALUES
@@ -933,7 +953,7 @@ INSERT INTO `feature_boxes` (`id`, `title`, `subtitle`, `featureboxurl`, `url_ch
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `footertexts`
+-- Table structure for table `footertexts`
 --
 
 CREATE TABLE `footertexts` (
@@ -944,7 +964,7 @@ CREATE TABLE `footertexts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `footertexts`
+-- Dumping data for table `footertexts`
 --
 
 INSERT INTO `footertexts` (`id`, `copyright`, `created_at`, `updated_at`) VALUES
@@ -953,7 +973,7 @@ INSERT INTO `footertexts` (`id`, `copyright`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `groups`
+-- Table structure for table `groups`
 --
 
 CREATE TABLE `groups` (
@@ -967,7 +987,7 @@ CREATE TABLE `groups` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `groups_categories`
+-- Table structure for table `groups_categories`
 --
 
 CREATE TABLE `groups_categories` (
@@ -978,7 +998,7 @@ CREATE TABLE `groups_categories` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `groups_users`
+-- Table structure for table `groups_users`
 --
 
 CREATE TABLE `groups_users` (
@@ -989,7 +1009,7 @@ CREATE TABLE `groups_users` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `i_p_l_i_s_t_s`
+-- Table structure for table `i_p_l_i_s_t_s`
 --
 
 CREATE TABLE `i_p_l_i_s_t_s` (
@@ -1006,7 +1026,7 @@ CREATE TABLE `i_p_l_i_s_t_s` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `languages`
+-- Table structure for table `languages`
 --
 
 CREATE TABLE `languages` (
@@ -1020,7 +1040,7 @@ CREATE TABLE `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `languages`
+-- Dumping data for table `languages`
 --
 
 INSERT INTO `languages` (`id`, `languagename`, `languagenativename`, `is_rtl`, `languagecode`, `created_at`, `updated_at`) VALUES
@@ -1029,7 +1049,7 @@ INSERT INTO `languages` (`id`, `languagename`, `languagenativename`, `is_rtl`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `media`
+-- Table structure for table `media`
 --
 
 CREATE TABLE `media` (
@@ -1057,7 +1077,7 @@ CREATE TABLE `media` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -1067,7 +1087,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -1143,12 +1163,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (70, '2022_09_23_102604_create_ticketassignchildren_table', 1),
 (71, '2022_09_29_035250_create_tickethistories_table', 1),
 (72, '2022_12_23_113549_announcement_startdate_nullable', 1),
-(73, '2023_02_15_044824_add_extra_column_to_tickets_table', 1);
+(73, '2023_02_15_044824_add_extra_column_to_tickets_table', 1),
+(74, '2026_03_19_000001_add_closed_reason_to_tickets_table', 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `model_has_permissions`
+-- Table structure for table `model_has_permissions`
 --
 
 CREATE TABLE `model_has_permissions` (
@@ -1160,7 +1181,7 @@ CREATE TABLE `model_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `model_has_roles`
+-- Table structure for table `model_has_roles`
 --
 
 CREATE TABLE `model_has_roles` (
@@ -1170,16 +1191,17 @@ CREATE TABLE `model_has_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `model_has_roles`
+-- Dumping data for table `model_has_roles`
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
-(1, 'App\\Models\\User', 1);
+(1, 'App\\Models\\User', 1),
+(2, 'App\\Models\\User', 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `notifications`
+-- Table structure for table `notifications`
 --
 
 CREATE TABLE `notifications` (
@@ -1195,17 +1217,32 @@ CREATE TABLE `notifications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `notifications`
+-- Dumping data for table `notifications`
 --
 
 INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `notifiable`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+('11daee95-03ce-41c4-91c7-f09f717db6d0', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SP-8\",\"title\":\"test help\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-8\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-8\"}', NULL, '2026-03-20 05:43:21', '2026-03-20 23:23:30'),
 ('17547726-5362-438e-9621-1bc3733c4d61', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SPG-1\",\"title\":\"tiketmati\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-1\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-1\"}', NULL, '2026-03-05 06:09:22', '2026-03-05 06:09:25'),
-('95d12716-cbba-4c0a-af7d-037059f28cb9', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 1, 0, '{\"ticket_id\":\"SPG-1\",\"title\":\"tiketmati\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-1\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-1\"}', NULL, '2026-03-05 06:09:22', '2026-03-05 06:09:22');
+('29e3d4c4-439c-4b63-bade-94ed8cd91c17', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SP-7\",\"title\":\"yayaya\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-7\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-7\"}', NULL, '2026-03-20 05:34:37', '2026-03-20 23:23:30'),
+('2bf8e3f1-a221-44e0-87b4-e9919fd9cdef', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SP-5\",\"title\":\"iyiyaiya\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-5\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-5\"}', NULL, '2026-03-18 23:51:37', '2026-03-18 23:51:39'),
+('311f5d83-ae3e-4390-be4b-0dca8a408284', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SP-6\",\"title\":\"tiket tes\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-6\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-6\"}', NULL, '2026-03-20 05:11:37', '2026-03-20 05:11:42'),
+('5be3bec1-8ba7-43b4-9e97-c353664a56a8', 'App\\Notifications\\TicketAssignNotification', 'App\\Models\\User', 2, 1, '{\"ticket_id\":\"SP-7\",\"title\":\"yayaya\",\"category\":\"Ticket Support\",\"status\":\"New\",\"ticketassign\":\"yes\",\"ticketassignee_id\":2,\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-7\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-7\"}', NULL, '2026-03-20 05:34:37', '2026-03-20 05:34:41'),
+('5d0b39e3-6721-486d-b8ff-c2574e968ed0', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 2, 1, '{\"ticket_id\":\"SP-8\",\"title\":\"test help\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-8\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-8\"}', NULL, '2026-03-20 05:43:21', '2026-03-20 05:43:26'),
+('5dbc006c-fdc0-4d43-b724-7b7c66cfa4e5', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 2, 1, '{\"ticket_id\":\"SP-6\",\"title\":\"tiket tes\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-6\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-6\"}', NULL, '2026-03-20 05:11:37', '2026-03-20 05:13:30'),
+('7dff3998-2988-4a9f-a419-3e14558159f6', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SP-3\",\"title\":\"halohaloha\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-3\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-3\"}', NULL, '2026-03-18 23:36:19', '2026-03-18 23:36:21'),
+('84fd928f-247d-49eb-ba41-b256daf2a00b', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 2, 0, '{\"ticket_id\":\"SPG-2\",\"title\":\"test aja c\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-2\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-2\"}', NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+('8c991322-f85b-4a3d-95a1-d1d86b13ae92', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SPG-2\",\"title\":\"test aja c\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-2\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-2\"}', NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:16'),
+('8f745ca5-9a14-49af-a2dc-2c428dc8c881', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 1, 1, '{\"ticket_id\":\"SP-5\",\"title\":\"iyiyaiya\",\"category\":\"Ticket Support\",\"status\":\"Inprogress\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-5\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-5\"}', NULL, '2026-03-19 00:34:10', '2026-03-19 00:34:14'),
+('95d12716-cbba-4c0a-af7d-037059f28cb9', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 1, 1, '{\"ticket_id\":\"SPG-1\",\"title\":\"tiketmati\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-1\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-1\"}', NULL, '2026-03-05 06:09:22', '2026-03-18 21:49:20'),
+('9ac217e9-43c3-4279-901a-81240c14c883', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 2, 1, '{\"ticket_id\":\"SP-7\",\"title\":\"yayaya\",\"category\":\"Ticket Support\",\"status\":\"New\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-7\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-7\"}', NULL, '2026-03-20 05:34:37', '2026-03-20 05:34:41'),
+('ae735212-65b9-4609-81dc-4fc82e129dd1', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\User', 1, 1, '{\"ticket_id\":\"SPG-2\",\"title\":\"test aja c\",\"category\":\"Ticket Support\",\"status\":\"Closed\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-2\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-2\"}', NULL, '2026-03-18 23:11:49', '2026-03-18 23:11:49'),
+('e6246cab-5c6f-4c1b-a94a-d81acccb1e91', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 2, 0, '{\"ticket_id\":\"SPG-2\",\"title\":\"test aja c\",\"category\":\"Ticket Support\",\"status\":\"Closed\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SPG-2\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SPG-2\"}', NULL, '2026-03-18 23:11:49', '2026-03-18 23:11:49'),
+('e75d258c-58f7-45b8-91a0-3e1c977f3a68', 'App\\Notifications\\TicketCreateNotifications', 'App\\Models\\Customer', 1, 1, '{\"ticket_id\":\"SP-5\",\"title\":\"iyiyaiya\",\"category\":\"Ticket Support\",\"status\":\"Inprogress\",\"overduestatus\":null,\"link\":\"http:\\/\\/localhost\\/uhelp\\/admin\\/ticket-view\\/SP-5\",\"clink\":\"http:\\/\\/localhost\\/uhelp\\/customer\\/ticket\\/view\\/SP-5\"}', NULL, '2026-03-19 00:33:51', '2026-03-19 00:33:53');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pages`
+-- Table structure for table `pages`
 --
 
 CREATE TABLE `pages` (
@@ -1222,7 +1259,7 @@ CREATE TABLE `pages` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -1235,7 +1272,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -1248,7 +1285,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permissionsgroupname`, `created_at`, `updated_at`) VALUES
@@ -1385,7 +1422,7 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `permissionsgroupname`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `projects`
+-- Table structure for table `projects`
 --
 
 CREATE TABLE `projects` (
@@ -1398,7 +1435,7 @@ CREATE TABLE `projects` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `projects_categories`
+-- Table structure for table `projects_categories`
 --
 
 CREATE TABLE `projects_categories` (
@@ -1409,7 +1446,7 @@ CREATE TABLE `projects_categories` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ratingtokens`
+-- Table structure for table `ratingtokens`
 --
 
 CREATE TABLE `ratingtokens` (
@@ -1420,10 +1457,17 @@ CREATE TABLE `ratingtokens` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ratingtokens`
+--
+
+INSERT INTO `ratingtokens` (`id`, `token`, `ticket_id`, `created_at`, `updated_at`) VALUES
+(1, 'V3VsS6Vrh6SgX27100lWuYwBCSMW8F4yFYpqFtwqfyTMC4RhuCqhu9U7O4Hj1Iur', 2, '2026-03-18 23:11:49', '2026-03-18 23:11:49');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -1435,16 +1479,17 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
-(1, 'superadmin', 'web', '2026-03-05 05:23:53', '2026-03-05 05:23:53');
+(1, 'superadmin', 'web', '2026-03-05 05:23:53', '2026-03-05 05:23:53'),
+(2, 'Helpdesk', 'web', '2026-03-19 08:22:07', '2026-03-19 08:22:07');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_has_permissions`
+-- Table structure for table `role_has_permissions`
 --
 
 CREATE TABLE `role_has_permissions` (
@@ -1453,14 +1498,17 @@ CREATE TABLE `role_has_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `role_has_permissions`
+-- Dumping data for table `role_has_permissions`
 --
 
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (1, 1),
 (3, 1),
+(3, 2),
 (4, 1),
+(4, 2),
 (5, 1),
+(5, 2),
 (6, 1),
 (15, 1),
 (16, 1),
@@ -1590,7 +1638,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sendmails`
+-- Table structure for table `sendmails`
 --
 
 CREATE TABLE `sendmails` (
@@ -1607,7 +1655,7 @@ CREATE TABLE `sendmails` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `senduserlists`
+-- Table structure for table `senduserlists`
 --
 
 CREATE TABLE `senduserlists` (
@@ -1622,7 +1670,7 @@ CREATE TABLE `senduserlists` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `seosettings`
+-- Table structure for table `seosettings`
 --
 
 CREATE TABLE `seosettings` (
@@ -1635,7 +1683,7 @@ CREATE TABLE `seosettings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `seosettings`
+-- Dumping data for table `seosettings`
 --
 
 INSERT INTO `seosettings` (`id`, `author`, `description`, `keywords`, `created_at`, `updated_at`) VALUES
@@ -1644,7 +1692,7 @@ INSERT INTO `seosettings` (`id`, `author`, `description`, `keywords`, `created_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -1656,7 +1704,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
@@ -1804,7 +1852,7 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `social_auth_settings`
+-- Table structure for table `social_auth_settings`
 --
 
 CREATE TABLE `social_auth_settings` (
@@ -1826,7 +1874,7 @@ CREATE TABLE `social_auth_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `social_auth_settings`
+-- Dumping data for table `social_auth_settings`
 --
 
 INSERT INTO `social_auth_settings` (`id`, `facebook_client_id`, `facebook_secret_id`, `facebook_status`, `google_client_id`, `google_secret_id`, `google_status`, `twitter_client_id`, `twitter_secret_id`, `twitter_status`, `envato_client_id`, `envato_secret_id`, `envato_status`, `created_at`, `updated_at`) VALUES
@@ -1835,7 +1883,7 @@ INSERT INTO `social_auth_settings` (`id`, `facebook_client_id`, `facebook_secret
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subcategoryschild`
+-- Table structure for table `subcategoryschild`
 --
 
 CREATE TABLE `subcategoryschild` (
@@ -1846,7 +1894,7 @@ CREATE TABLE `subcategoryschild` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subcategorysd`
+-- Table structure for table `subcategorysd`
 --
 
 CREATE TABLE `subcategorysd` (
@@ -1860,7 +1908,7 @@ CREATE TABLE `subcategorysd` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `testimonials`
+-- Table structure for table `testimonials`
 --
 
 CREATE TABLE `testimonials` (
@@ -1874,7 +1922,7 @@ CREATE TABLE `testimonials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `testimonials`
+-- Dumping data for table `testimonials`
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `description`, `designation`, `image`, `created_at`, `updated_at`) VALUES
@@ -1885,7 +1933,7 @@ INSERT INTO `testimonials` (`id`, `name`, `description`, `designation`, `image`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ticketassignchildren`
+-- Table structure for table `ticketassignchildren`
 --
 
 CREATE TABLE `ticketassignchildren` (
@@ -1893,10 +1941,21 @@ CREATE TABLE `ticketassignchildren` (
   `toassignuser_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ticketassignchildren`
+--
+
+INSERT INTO `ticketassignchildren` (`ticket_id`, `toassignuser_id`) VALUES
+(5, 1),
+(6, 1),
+(6, 2),
+(7, 2),
+(8, 2);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tickethistories`
+-- Table structure for table `tickethistories`
 --
 
 CREATE TABLE `tickethistories` (
@@ -1910,16 +1969,25 @@ CREATE TABLE `tickethistories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tickethistories`
+-- Dumping data for table `tickethistories`
 --
 
 INSERT INTO `tickethistories` (`id`, `ticket_id`, `ticketactions`, `ticketstatus`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Responded)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-primary-light\">\n            <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19');
+(1, 1, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Responded)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-primary-light\">\n            <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19'),
+(2, 2, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Responded)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-primary-light\">\n            <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+(3, 2, '<div class=\"d-flex align-items-center\">\n                <div class=\"mt-0\">\n                    <p class=\"mb-0 fs-12 mb-1\">Status\n                \n                    <span class=\"text-danger font-weight-semibold mx-1\">Closed</span>\n                    <span class=\"text-success font-weight-semibold mx-1\">Solved</span>\n                    \n                <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Closed)</span></p>\n            </div>\n            <div class=\"ms-auto\">\n            <span class=\"float-end badge badge-primary-light\">\n                <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n            </span>\n            </div>\n\n            </div>\n            ', NULL, NULL, '2026-03-18 23:11:49', '2026-03-18 23:11:49'),
+(4, 3, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">GUEST<span class=\"fs-11 mx-1 text-muted\">(Created)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-danger-light\">\n            <span class=\"fs-11 font-weight-semibold\">Guest</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-18 23:36:19', '2026-03-18 23:36:19'),
+(5, 5, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">GUEST<span class=\"fs-11 mx-1 text-muted\">(Created)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-danger-light\">\n            <span class=\"fs-11 font-weight-semibold\">Guest</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-18 23:51:37', '2026-03-18 23:51:37'),
+(6, 5, '<div class=\"d-flex align-items-center\">\n                <div class=\"mt-0\">\n                    <p class=\"mb-0 fs-12 mb-1\">Status\n                \n                        <span class=\"text-info font-weight-semibold mx-1\">Inprogress</span>\n                        \n                <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Responded)</span></p>\n            </div>\n            <div class=\"ms-auto\">\n            <span class=\"float-end badge badge-primary-light\">\n                <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n            </span>\n            </div>\n\n            </div>\n            ', NULL, NULL, '2026-03-19 00:33:51', '2026-03-19 00:33:51'),
+(7, 5, '<div class=\"d-flex align-items-center\">\n                <div class=\"mt-0\">\n                    <p class=\"mb-0 fs-12 mb-1\">Status\n                \n                        <span class=\"text-info font-weight-semibold mx-1\">Inprogress</span>\n                        \n                <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">Muhammad Fauzi<span class=\"fs-11 mx-1 text-muted\">(Responded)</span></p>\n            </div>\n            <div class=\"ms-auto\">\n            <span class=\"float-end badge badge-primary-light\">\n                <span class=\"fs-11 font-weight-semibold\">superadmin</span>\n            </span>\n            </div>\n\n            </div>\n            ', NULL, NULL, '2026-03-19 00:34:10', '2026-03-19 00:34:10'),
+(8, 6, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">GUEST<span class=\"fs-11 mx-1 text-muted\">(Created)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-danger-light\">\n            <span class=\"fs-11 font-weight-semibold\">Guest</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-20 05:11:36', '2026-03-20 05:11:36'),
+(9, 7, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">GUEST<span class=\"fs-11 mx-1 text-muted\">(Created)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-danger-light\">\n            <span class=\"fs-11 font-weight-semibold\">Guest</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-20 05:34:37', '2026-03-20 05:34:37'),
+(10, 8, '<div class=\"d-flex align-items-center\">\n            <div class=\"mt-0\">\n                <p class=\"mb-0 fs-12 mb-1\">Status\n            \n                <span class=\"text-burnt-orange font-weight-semibold mx-1\">New</span>\n                \n            <p class=\"mb-0 fs-17 font-weight-semibold text-dark\">GUEST<span class=\"fs-11 mx-1 text-muted\">(Created)</span></p>\n        </div>\n        <div class=\"ms-auto\">\n        <span class=\"float-end badge badge-danger-light\">\n            <span class=\"fs-11 font-weight-semibold\">Guest</span>\n        </span>\n        </div>\n\n        </div>\n        ', NULL, NULL, '2026-03-20 05:43:21', '2026-03-20 05:43:21');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ticketnotes`
+-- Table structure for table `ticketnotes`
 --
 
 CREATE TABLE `ticketnotes` (
@@ -1934,7 +2002,7 @@ CREATE TABLE `ticketnotes` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -1966,22 +2034,30 @@ CREATE TABLE `tickets` (
   `auto_overdue_ticket` datetime DEFAULT NULL,
   `selfassignuser_id` bigint(20) UNSIGNED DEFAULT NULL,
   `closedby_user` bigint(20) UNSIGNED DEFAULT NULL,
+  `closed_reason` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tickets`
+-- Dumping data for table `tickets`
 --
 
-INSERT INTO `tickets` (`id`, `cust_id`, `user_id`, `ticket_id`, `category_id`, `subcategory`, `subject`, `employeesreplying`, `usernameverify`, `emailticketfile`, `priority`, `project`, `purchasecode`, `purchasecodesupport`, `message`, `note`, `status`, `replystatus`, `myassignuser_id`, `last_reply`, `lastreply_mail`, `auto_replystatus`, `closing_ticket`, `auto_close_ticket`, `overduestatus`, `auto_overdue_ticket`, `selfassignuser_id`, `closedby_user`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 'SPG-1', 1, NULL, 'tiketmati', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IkZpVU01YllGOVNXeXQwcU4waFliUkE9PSIsInZhbHVlIjoiZzJVSHVUbGNvaGlMdXVhRHNEU2NDN2lwdXIwSHB0ZElacTRXb3hqNGdhQT0iLCJtYWMiOiI5NDU0YTcyZWIyYTNhZTQ3MWNjN2JkYTIyYjViMjFjYmU0MmQzNWVkZjJlY2EwMzVhNmMwMDJhNjE0ZDdkMzM2IiwidGFnIjoiIn0=', NULL, '<p>dsdsds</p>', NULL, 'New', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19', NULL);
+INSERT INTO `tickets` (`id`, `cust_id`, `user_id`, `ticket_id`, `category_id`, `subcategory`, `subject`, `employeesreplying`, `usernameverify`, `emailticketfile`, `priority`, `project`, `purchasecode`, `purchasecodesupport`, `message`, `note`, `status`, `replystatus`, `myassignuser_id`, `last_reply`, `lastreply_mail`, `auto_replystatus`, `closing_ticket`, `auto_close_ticket`, `overduestatus`, `auto_overdue_ticket`, `selfassignuser_id`, `closedby_user`, `closed_reason`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, 'SPG-1', 1, NULL, 'tiketmati', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IkZpVU01YllGOVNXeXQwcU4waFliUkE9PSIsInZhbHVlIjoiZzJVSHVUbGNvaGlMdXVhRHNEU2NDN2lwdXIwSHB0ZElacTRXb3hqNGdhQT0iLCJtYWMiOiI5NDU0YTcyZWIyYTNhZTQ3MWNjN2JkYTIyYjViMjFjYmU0MmQzNWVkZjJlY2EwMzVhNmMwMDJhNjE0ZDdkMzM2IiwidGFnIjoiIn0=', NULL, '<p>dsdsds</p>', NULL, 'New', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19', NULL),
+(2, 2, 1, 'SPG-2', 1, NULL, 'test aja c', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6Ijh2bjhZOHNXVkZWd0wzS3cwVXoxWFE9PSIsInZhbHVlIjoiVkpmQkhjRnZqK29Mc3VsSmVyalFaV2tQU0d0SkdYYnVFVDRzaTlPdGNQRT0iLCJtYWMiOiJmN2ViM2I0Y2RkODc0ODE1NDI5ZWU1ZGVmYmI5ZTRmM2VhMGViNWVkM2NhZmVhMDE4MDc1NzRjOTJkZTRiMDhhIiwidGFnIjoiIn0=', NULL, '<p>test aja coy ini mah</p>', NULL, 'Closed', 'Solved', NULL, '2026-03-19 06:11:49', 1, NULL, '2026-03-19 06:11:49', NULL, NULL, NULL, NULL, 1, 'by_customer', '2026-03-18 22:10:09', '2026-03-18 23:11:49', NULL),
+(3, 1, NULL, 'SP-3', 1, NULL, 'halohaloha', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IldsaUNRUFZFeUg3eHBWbUdza2JhOWc9PSIsInZhbHVlIjoiaVhLTXdydGVNaE1GdmJBWGVEd1hKcWhUakNidEh2aU1vSng3UlVweU5UMD0iLCJtYWMiOiIwMDc3OGIyMGJmMDUzMTJmOThkODQ5MDcxMWQ3YjM5YmM3NmYzZDRmZWFmNGEyZTU3ZDBlNjc1NjkyY2MxZDM0IiwidGFnIjoiIn0=', NULL, '<p>halo halo testing</p>', NULL, 'New', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-20 06:36:19', NULL, NULL, NULL, '2026-03-18 23:36:19', '2026-03-18 23:36:19', NULL),
+(4, 1, NULL, 'SP-4', 1, NULL, 'iyiyaiya', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IjNORGE4Y3ZwSmhrUTRTUDRnOTVUS0E9PSIsInZhbHVlIjoiOS80UjVsckF4UGZUQ0hYZlhaODBnSVVKUmU5SkdRS3VBSy9zb0lhKzUwWT0iLCJtYWMiOiI4ZjYwMzViYzQyOWY4NmU4YTg1ZjA2YWU4ODBiN2YwMmU0MjliZDgyMjg5NjkzZmE2NWU5OThmMjY1NmNkNDcxIiwidGFnIjoiIn0=', NULL, '<p>wladhawlwnland</p>', NULL, 'New', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-20 06:47:10', NULL, NULL, NULL, '2026-03-18 23:47:10', '2026-03-18 23:47:10', NULL),
+(5, 1, NULL, 'SP-5', 1, NULL, 'iyiyaiya', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IitsS2czUC9wVWtUK0RWQ0o5Y0V4dXc9PSIsInZhbHVlIjoicjBOeVZrVDBmdmJuSHJ5YmNxL2hrdVFUT2IwbEdRS2VDKzY5N3pyakZ1WT0iLCJtYWMiOiJkYmUzMzQ2NzliM2E0MzkwZjM4ZTc2OWZmMjk3NjY4MzExMzEyYzRkMDU2ZTIyZDNkOTE4OTMyNTFkMWVjYzBiIiwidGFnIjoiIn0=', NULL, '<p>wladhawlwnland</p>', NULL, 'Inprogress', 'Waiting', 1, '2026-03-19 07:34:10', 1, '2026-03-19 08:34:10', NULL, '2026-03-20 08:34:10', NULL, NULL, NULL, NULL, NULL, '2026-03-18 23:51:37', '2026-03-19 00:34:10', NULL),
+(6, 1, NULL, 'SP-6', 1, NULL, 'tiket tes', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IlZwQ043eGExUHdnL0FiNUw3Q3VBQ1E9PSIsInZhbHVlIjoiYjVNVjR5SHgyQ2p3bTgxNXVFdWxmWHJyLy9uREhER3h5MWs0QlVOeXVWMD0iLCJtYWMiOiI1YWE2NTE0NzUyZTNjZTY4MWExZGM4ODY2NmIxNWJkYWNhNmNmMzU3MmIwOTU1MjZiMGZiN2E2Zjg3M2FjMGIwIiwidGFnIjoiIn0=', NULL, '<p>testing123</p>', NULL, 'New', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-21 12:11:36', NULL, NULL, NULL, '2026-03-20 05:11:36', '2026-03-20 05:11:36', NULL),
+(7, 1, NULL, 'SP-7', 1, NULL, 'yayaya', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6IjRyNmNjUUNmRHlJRmJwUUxaVmF1Y0E9PSIsInZhbHVlIjoicFNDTmtIYW1jZWJFNVJrTndyRUlrUGJCR2RDdEd3elZpbDRHcnhEVTdKVT0iLCJtYWMiOiIzOTRkNGMwN2QwNzZiMGY5NzJmOWU2ODI4YmYyYTNlYmU4ZmYyMmU5YTM4MjdiMDY2NDkxY2M4YWRiMWQ4NDI2IiwidGFnIjoiIn0=', NULL, '<p>test12311</p>', NULL, 'New', NULL, 2, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-21 12:34:37', NULL, NULL, NULL, '2026-03-20 05:34:37', '2026-03-20 05:34:37', NULL),
+(8, 1, NULL, 'SP-8', 1, NULL, 'test help', NULL, NULL, NULL, NULL, NULL, 'eyJpdiI6ImlOTDRXWG9qZ3c4dmZLbm56bVpPaXc9PSIsInZhbHVlIjoiYUpKYWFQbFBic3hIUytyK0p1RDFiTzk5cUlDNnYzYXNsdnQ1QXlyT2ZEST0iLCJtYWMiOiJiZDA5YzI0MzI4YTAwYWE0NTFjZDE0YTUyMmVhNjUxYmM5OWQ1ZTE3M2QxZjhlNWVlZDcxN2Q0ZWRjYWY0MmVhIiwidGFnIjoiIn0=', NULL, '<p>testing ke helpdesk</p>', NULL, 'New', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, '2026-03-21 12:43:21', NULL, NULL, NULL, '2026-03-20 05:43:21', '2026-03-20 05:43:21', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ticketsccemails`
+-- Table structure for table `ticketsccemails`
 --
 
 CREATE TABLE `ticketsccemails` (
@@ -1993,16 +2069,22 @@ CREATE TABLE `ticketsccemails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `ticketsccemails`
+-- Dumping data for table `ticketsccemails`
 --
 
 INSERT INTO `ticketsccemails` (`id`, `ticket_id`, `ccemails`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19');
+(1, 1, NULL, '2026-03-05 06:09:19', '2026-03-05 06:09:19'),
+(2, 2, NULL, '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+(3, 3, NULL, '2026-03-18 23:36:19', '2026-03-18 23:36:19'),
+(4, 5, NULL, '2026-03-18 23:51:37', '2026-03-18 23:51:37'),
+(5, 6, NULL, '2026-03-20 05:11:36', '2026-03-20 05:11:36'),
+(6, 7, NULL, '2026-03-20 05:34:37', '2026-03-20 05:34:37'),
+(7, 8, NULL, '2026-03-20 05:43:21', '2026-03-20 05:43:21');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ticket_customfields`
+-- Table structure for table `ticket_customfields`
 --
 
 CREATE TABLE `ticket_customfields` (
@@ -2017,10 +2099,28 @@ CREATE TABLE `ticket_customfields` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ticket_customfields`
+--
+
+INSERT INTO `ticket_customfields` (`id`, `cust_id`, `ticket_id`, `privacymode`, `fieldnames`, `fieldtypes`, `values`, `created_at`, `updated_at`) VALUES
+(1, NULL, 2, NULL, 'Location', 'select', 'Gorontalo', '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+(2, NULL, 2, NULL, 'EOS Indication', 'select', 'Mini CME', '2026-03-18 22:10:09', '2026-03-18 22:10:09'),
+(3, NULL, 3, NULL, 'Location', 'select', 'Ambon', '2026-03-18 23:36:19', '2026-03-18 23:36:19'),
+(4, NULL, 3, NULL, 'EOS Indication', 'select', 'Aplikasi', '2026-03-18 23:36:19', '2026-03-18 23:36:19'),
+(5, NULL, 5, NULL, 'Location', 'select', 'Backhaul New JATSC', '2026-03-18 23:51:37', '2026-03-18 23:51:37'),
+(6, NULL, 5, NULL, 'EOS Indication', 'select', 'Network Backbone (FO - MW - VSAT)', '2026-03-18 23:51:37', '2026-03-18 23:51:37'),
+(7, NULL, 6, NULL, 'Location', 'select', 'Bengkulu', '2026-03-20 05:11:36', '2026-03-20 05:11:36'),
+(8, NULL, 6, NULL, 'First Indication By User', 'select', 'Mini Link', '2026-03-20 05:11:36', '2026-03-20 05:11:36'),
+(9, NULL, 7, NULL, 'Location', 'select', 'Cirebon', '2026-03-20 05:34:37', '2026-03-20 05:34:37'),
+(10, NULL, 7, NULL, 'First Indication By User', 'select', 'Aplikasi', '2026-03-20 05:34:37', '2026-03-20 05:34:37'),
+(11, NULL, 8, NULL, 'Location', 'select', 'Donggala', '2026-03-20 05:43:21', '2026-03-20 05:43:21'),
+(12, NULL, 8, NULL, 'First Indication By User', 'select', 'Mini Link', '2026-03-20 05:43:21', '2026-03-20 05:43:21');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `timezone`
+-- Table structure for table `timezone`
 --
 
 CREATE TABLE `timezone` (
@@ -2033,7 +2133,7 @@ CREATE TABLE `timezone` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `timezone`
+-- Dumping data for table `timezone`
 --
 
 INSERT INTO `timezone` (`id`, `timezone`, `group`, `utc`, `created_at`, `updated_at`) VALUES
@@ -2466,7 +2566,7 @@ INSERT INTO `timezone` (`id`, `timezone`, `group`, `utc`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `timezones`
+-- Table structure for table `timezones`
 --
 
 CREATE TABLE `timezones` (
@@ -2481,7 +2581,7 @@ CREATE TABLE `timezones` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `translates`
+-- Table structure for table `translates`
 --
 
 CREATE TABLE `translates` (
@@ -2495,7 +2595,7 @@ CREATE TABLE `translates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `translates`
+-- Dumping data for table `translates`
 --
 
 INSERT INTO `translates` (`id`, `lang_code`, `group_langname`, `key`, `value`, `created_at`, `updated_at`) VALUES
@@ -3234,12 +3334,941 @@ INSERT INTO `translates` (`id`, `lang_code`, `group_langname`, `key`, `value`, `
 (732, 'en', 'general', 'Ticket Priority', 'Ticket Priority', '2026-03-05 06:11:37', '2026-03-05 06:11:37'),
 (733, 'en', 'general', 'Knowledge Base', 'Knowledge Base', '2026-03-05 06:11:37', '2026-03-05 06:11:37'),
 (734, 'en', 'general', 'Ratings For Employee', 'Ratings For Employee', '2026-03-05 06:11:37', '2026-03-05 06:11:37'),
-(735, 'en', 'general', 'Total', 'Total', '2026-03-05 06:11:37', '2026-03-05 06:11:37');
+(735, 'en', 'general', 'Total', 'Total', '2026-03-05 06:11:37', '2026-03-05 06:11:37'),
+(736, 'en', 'general', 'Ask your Questions...', 'Ask your Questions...', '2026-03-18 21:32:02', '2026-03-18 21:32:02'),
+(737, 'en', 'general', 'Recent Articles', 'Recent Articles', '2026-03-18 21:32:02', '2026-03-18 21:32:02'),
+(738, 'en', 'general', 'Popular Articles', 'Popular Articles', '2026-03-18 21:32:02', '2026-03-18 21:32:02'),
+(739, 'en', 'general', 'Verify Your Email', 'Verify Your Email', '2026-03-18 21:32:04', '2026-03-18 21:32:04'),
+(740, 'en', 'general', 'Not Found', 'Not Found', '2026-03-18 21:37:07', '2026-03-18 21:37:07'),
+(741, 'en', 'general', '404', '404', '2026-03-18 21:37:07', '2026-03-18 21:37:07'),
+(742, 'en', 'general', 'Back to Home', 'Back to Home', '2026-03-18 21:37:07', '2026-03-18 21:37:07'),
+(743, 'en', 'general', 'Export to Excel', 'Export to Excel', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(744, 'en', 'general', 'Closed Date', 'Closed Date', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(745, 'en', 'general', 'Duration', 'Duration', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(746, 'en', 'general', 'Export Tickets to Excel', 'Export Tickets to Excel', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(747, 'en', 'general', 'Export', 'Export', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(748, 'en', 'alerts', 'Please select both start and end dates.', 'Please select both start and end dates.', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(749, 'en', 'alerts', 'Start date must be before end date.', 'Start date must be before end date.', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(750, 'en', 'general', 'Exporting...', 'Exporting...', '2026-03-18 21:45:27', '2026-03-18 21:45:27'),
+(751, 'en', 'general', 'Don’t have account?', 'Don’t have account?', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(752, 'en', 'general', 'Please enter the username', 'Please enter the username', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(753, 'en', 'general', 'Please enter the password.', 'Please enter the password.', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(754, 'en', 'alerts', 'The username or password you entered is incorrect. Please Check', 'The username or password you entered is incorrect. Please Check', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(755, 'en', 'alerts', 'Your Email is not verified yet. An email verification link was sent successfully. Please check and verify your email.', 'Your Email is not verified yet. An email verification link was sent successfully. Please check and verify your email.', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(756, 'en', 'alerts', 'Your account is currently inactive. Please contact the admin.', 'Your account is currently inactive. Please contact the admin.', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(757, 'en', 'alerts', 'Temporary Login disable', 'Temporary Login disable', '2026-03-18 21:46:07', '2026-03-18 21:46:07'),
+(758, 'en', 'general', 'Online', 'Online', '2026-03-18 21:49:13', '2026-03-18 21:49:13'),
+(759, 'en', 'general', 'Tickets Summary', 'Tickets Summary', '2026-03-18 21:49:13', '2026-03-18 21:49:13'),
+(760, 'en', 'general', 'Open', 'Open', '2026-03-18 21:49:13', '2026-03-18 21:49:13'),
+(761, 'en', 'general', 'https://example.com', 'https://example.com', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(762, 'en', 'setting', 'Contact Us', 'Contact Us', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(763, 'en', 'setting', 'If you enable this setting, the \"Contact Us\" option will appear in the application’s landing page.', 'If you enable this setting, the \"Contact Us\" option will appear in the application’s landing page.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(764, 'en', 'setting', 'Enter Contact us Email', 'Enter Contact us Email', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(765, 'en', 'setting', 'Enter an email address to receive contact-us form details.', 'Enter an email address to receive contact-us form details.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(766, 'en', 'general', 'admin@example.com', 'admin@example.com', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(767, 'en', 'setting', 'Chat GPT', 'Chat GPT', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(768, 'en', 'setting', 'Enable Chat GPT', 'Enable Chat GPT', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(769, 'en', 'setting', 'By enabling this setting, you will be able to use chat gpt to generate text for canned response, email templates, custom notifications, articles and announcements.', 'By enabling this setting, you will be able to use chat gpt to generate text for canned response, email templates, custom notifications, articles and announcements.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(770, 'en', 'setting', 'Enter OpenAI Chat GPT API Secret Key', 'Enter OpenAI Chat GPT API Secret Key', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(771, 'en', 'setting', 'Enter the OpenAI Chat GPT API Secret Key to use Chat GPT in your application.', 'Enter the OpenAI Chat GPT API Secret Key to use Chat GPT in your application.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(772, 'en', 'setting', 'Inactive Customer/Guest Delete ', 'Inactive Customer/Guest Delete ', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(773, 'en', 'setting', 'Customer Profile Auto Delete Enable', 'Customer Profile Auto Delete Enable', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(774, 'en', 'setting', 'If you enable this ticket setting, inactive customers will receive an email after the time period specified below (Inactive Months) stating that their account has been unused since then and will be deleted automatically after the specified (Customer Delete Days).', 'If you enable this ticket setting, inactive customers will receive an email after the time period specified below (Inactive Months) stating that their account has been unused since then and will be deleted automatically after the specified (Customer Delete Days).', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(775, 'en', 'setting', 'Inactive Months', 'Inactive Months', '2026-03-18 21:53:19', '2026-03-18 21:53:19');
+INSERT INTO `translates` (`id`, `lang_code`, `group_langname`, `key`, `value`, `created_at`, `updated_at`) VALUES
+(776, 'en', 'setting', 'Customer Delete Days', 'Customer Delete Days', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(777, 'en', 'setting', 'Guest Profile Auto Delete Enable', 'Guest Profile Auto Delete Enable', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(778, 'en', 'setting', 'If you enable this ticket setting, inactive guests will receive an email after the time period specified below (Inactive Months) stating that their account has been unused since then and will be deleted automatically after the specified (Guest Delete Days).', 'If you enable this ticket setting, inactive guests will receive an email after the time period specified below (Inactive Months) stating that their account has been unused since then and will be deleted automatically after the specified (Guest Delete Days).', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(779, 'en', 'setting', 'Guest Delete Days', 'Guest Delete Days', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(780, 'en', 'setting', 'Enable Dark Mode Switch For Admin Panel User’s', 'Enable Dark Mode Switch For Admin Panel User’s', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(781, 'en', 'setting', 'If you disable this setting, the \"Switch to Dark-Mode\" option will disappear from the Admin panel user’s profile page.', 'If you disable this setting, the \"Switch to Dark-Mode\" option will disappear from the Admin panel user’s profile page.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(782, 'en', 'setting', 'Enable Dark Mode Switch For All Customer’s', 'Enable Dark Mode Switch For All Customer’s', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(783, 'en', 'setting', 'If you disable this setting, the \"Switch to Dark-Mode\" option will disappear from the Customer’s profile page. And global \"Dark-Mode\" settings will not apply for customers.', 'If you disable this setting, the \"Switch to Dark-Mode\" option will disappear from the Customer’s profile page. And global \"Dark-Mode\" settings will not apply for customers.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(784, 'en', 'setting', 'Enable Dark-Mode Globally', 'Enable Dark-Mode Globally', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(785, 'en', 'setting', 'If you enable this setting, the whole application will convert to \"Dark-Mode\" except for the users that are permitted with \"Personal Settings.\"', 'If you enable this setting, the whole application will convert to \"Dark-Mode\" except for the users that are permitted with \"Personal Settings.\"', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(786, 'en', 'setting', 'If you enable this setting, customers can access the registration form or login form in “popup modal” only.', 'If you enable this setting, customers can access the registration form or login form in “popup modal” only.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(787, 'en', 'setting', 'If you enable this setting, \"Register\" options will disappear from the application’s header section, and new visitors wont be able to register to the application.', 'If you enable this setting, \"Register\" options will disappear from the application’s header section, and new visitors wont be able to register to the application.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(788, 'en', 'setting', 'If you enable this setting, \"Login\" options will disappear from the application’s header section. Customers cannot login to their accounts.', 'If you enable this setting, \"Login\" options will disappear from the application’s header section. Customers cannot login to their accounts.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(789, 'en', 'setting', 'If you disable this setting, the \"Knowledge\" option will disappear from the application’s header section.', 'If you disable this setting, the \"Knowledge\" option will disappear from the application’s header section.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(790, 'en', 'setting', 'If you disable this setting, the \"faq\" option will disappear from the application’s header section.', 'If you disable this setting, the \"faq\" option will disappear from the application’s header section.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(791, 'en', 'setting', 'If you disable this Envato switch, the entire \"Envato\" option will disappear from the application', 'If you disable this Envato switch, the entire \"Envato\" option will disappear from the application', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(792, 'en', 'setting', 'If you enable this setting, login page will appear on the main site URL by default. Users cannot access the homepage', 'If you enable this setting, login page will appear on the main site URL by default. Users cannot access the homepage', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(793, 'en', 'setting', 'Article Count Enable', 'Article Count Enable', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(794, 'en', 'setting', 'If you disable this setting, article views count will disappear in the \"Article\" view page.', 'If you disable this setting, article views count will disappear in the \"Article\" view page.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(795, 'en', 'setting', 'Social Login’s Only', 'Social Login’s Only', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(796, 'en', 'setting', 'If you enable this setting, only social login form will appear to customer’s by when you click on the login button in header section. They cannot access normal login form', 'If you enable this setting, only social login form will appear to customer’s by when you click on the login button in header section. They cannot access normal login form', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(797, 'en', 'setting', 'If you \"Enable\" this setting, the whole application sidemenu will collapse into Icon Menu', 'If you \"Enable\" this setting, the whole application sidemenu will collapse into Icon Menu', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(798, 'en', 'setting', 'Customer Account Delete Permission', 'Customer Account Delete Permission', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(799, 'en', 'setting', 'Enable Maintenance Mode', 'Enable Maintenance Mode', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(800, 'en', 'setting', 'If you \"Enable\" this setting, the application will go into maintenance mode. Only admin panel users can access the application.', 'If you \"Enable\" this setting, the application will go into maintenance mode. Only admin panel users can access the application.', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(801, 'en', 'alerts', 'Social logins are not enabled please enable it first', 'Social logins are not enabled please enable it first', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(802, 'en', 'general', 'Login/Register Disable Statement', 'Login/Register Disable Statement', '2026-03-18 21:53:19', '2026-03-18 21:53:19'),
+(803, 'en', 'setting', 'The character limit of a ticket title can be fixed here. Enter your desired ticket title’s character count. And characters in title now cannot exceed that value', 'The character limit of a ticket title can be fixed here. Enter your desired ticket title’s character count. And characters in title now cannot exceed that value', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(804, 'en', 'setting', 'Restrict Customers from creating tickets continously', 'Restrict Customers from creating tickets continously', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(805, 'en', 'setting', 'If you enable this ticket setting, customers cannot create multiple tickets at a time. Customers will be restricted to the value specified in \"Maximum Number Of Tickets Allowed\" untill the given timeframe \"In Hours\"', 'If you enable this ticket setting, customers cannot create multiple tickets at a time. Customers will be restricted to the value specified in \"Maximum Number Of Tickets Allowed\" untill the given timeframe \"In Hours\"', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(806, 'en', 'setting', 'Maximum Number Of Tickets Allowed', 'Maximum Number Of Tickets Allowed', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(807, 'en', 'setting', 'In Hours', 'In Hours', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(808, 'en', 'setting', 'Restrict Customer From Replying To Ticket Continously', 'Restrict Customer From Replying To Ticket Continously', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(809, 'en', 'setting', 'If you enable this ticket setting, customers can not \"Reply\" their tickets within the mentioned hours and tickets in the input fields as below.', 'If you enable this ticket setting, customers can not \"Reply\" their tickets within the mentioned hours and tickets in the input fields as below.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(810, 'en', 'setting', 'Maximum Allowed Replies', 'Maximum Allowed Replies', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(811, 'en', 'setting', 'Replies Allowed In Hours', 'Replies Allowed In Hours', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(812, 'en', 'setting', 'Ticket Auto Response Time Enable', 'Ticket Auto Response Time Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(813, 'en', 'setting', 'This setting is used to change the ticket status to \"Waiting for response\" when a customer doesn’t reply to the ticket within the mentioned hours in the input field, and an email will also be sent to the customer. If you disable this ticket setting, then it won’t change the ticket status.', 'This setting is used to change the ticket status to \"Waiting for response\" when a customer doesn’t reply to the ticket within the mentioned hours in the input field, and an email will also be sent to the customer. If you disable this ticket setting, then it won’t change the ticket status.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(814, 'en', 'setting', 'Ticket Auto Response time in Hours', 'Ticket Auto Response time in Hours', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(815, 'en', 'setting', 'Auto Close Ticket Enable', 'Auto Close Ticket Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(816, 'en', 'setting', 'Customer Re-Open Ticket Enable', 'Customer Re-Open Ticket Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(817, 'en', 'setting', 'Re-Open Ticket In Days', 'Re-Open Ticket In Days', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(818, 'en', 'setting', 'Auto Ticket Overdue Enable', 'Auto Ticket Overdue Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(819, 'en', 'setting', 'If you disable this ticket setting, the \"overdue\" status won’t reflect on the tickets table in the admin panel. If it is enabled and the users of an admin panel don’t give a reply to the customer within the mentioned days, then the ticket status changes to \"Overdue.\"', 'If you disable this ticket setting, the \"overdue\" status won’t reflect on the tickets table in the admin panel. If it is enabled and the users of an admin panel don’t give a reply to the customer within the mentioned days, then the ticket status changes to \"Overdue.\"', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(820, 'en', 'setting', 'Auto Overdue Ticket In Days', 'Auto Overdue Ticket In Days', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(821, 'en', 'setting', 'Auto Delete Trashed Tickets', 'Auto Delete Trashed Tickets', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(822, 'en', 'setting', 'If you enable this ticket setting, trashed tickets will be deleted automatically deleted after the time mentioned in the below input field.', 'If you enable this ticket setting, trashed tickets will be deleted automatically deleted after the time mentioned in the below input field.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(823, 'en', 'setting', 'Trashed Tickets Auto Delete In Days', 'Trashed Tickets Auto Delete In Days', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(824, 'en', 'setting', 'Auto Delete Notifications Enable', 'Auto Delete Notifications Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(825, 'en', 'setting', 'If you disable this notification setting, read notification won’t be deleted from both panels, i.e., the customer and admin panel. If it is enabled, then the read notifications will be deleted after the completion of the mentioned days in the input field below.', 'If you disable this notification setting, read notification won’t be deleted from both panels, i.e., the customer and admin panel. If it is enabled, then the read notifications will be deleted after the completion of the mentioned days in the input field below.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(826, 'en', 'setting', 'Auto Delete Notification In Days', 'Auto Delete Notification In Days', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(827, 'en', 'setting', 'Employee Name Privacy', 'Employee Name Privacy', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(828, 'en', 'setting', 'Guest Ticket Enable', 'Guest Ticket Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(829, 'en', 'setting', 'If you disable this ticket setting, the \"Guest Ticket\" option will disappear from the application’s header section.', 'If you disable this ticket setting, the \"Guest Ticket\" option will disappear from the application’s header section.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(830, 'en', 'setting', 'Note Created Mail to Admin', 'Note Created Mail to Admin', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(831, 'en', 'setting', 'If you enable this ticket setting, an email will be sent to superadmin when a ticket note is created.', 'If you enable this ticket setting, an email will be sent to superadmin when a ticket note is created.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(832, 'en', 'setting', 'Ticket Delete By Customer Disable', 'Ticket Delete By Customer Disable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(833, 'en', 'setting', 'If you enable this ticket setting, delete ticket option will disappear from customer’s dashboard.', 'If you enable this ticket setting, delete ticket option will disappear from customer’s dashboard.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(834, 'en', 'setting', 'Customer File Uploads for Ticket', 'Customer File Uploads for Ticket', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(835, 'en', 'setting', 'If you disable this ticket setting, the \"File Upload\" option will disappear from the create ticket page, while creating or replying to the ticket.', 'If you disable this ticket setting, the \"File Upload\" option will disappear from the create ticket page, while creating or replying to the ticket.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(836, 'en', 'setting', 'Guest Ticket OTP Disable', 'Guest Ticket OTP Disable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(837, 'en', 'setting', 'Customer Create Ticket Disable', 'Customer Create Ticket Disable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(838, 'en', 'setting', 'If you enable this ticket setting, the create ticket option will disappear from the customer’s dashboard.', 'If you enable this ticket setting, the create ticket option will disappear from the customer’s dashboard.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(839, 'en', 'setting', 'Rating Page Disable', 'Rating Page Disable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(840, 'en', 'setting', 'CC Mail Enable', 'CC Mail Enable', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(841, 'en', 'setting', 'If you \"Enable\" this \"CC Mail\" setting, the CC Mail input field options will appear on the Create Ticket, Admin Create Ticket, and Guest Ticket pages.', 'If you \"Enable\" this \"CC Mail\" setting, the CC Mail input field options will appear on the Create Ticket, Admin Create Ticket, and Guest Ticket pages.', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(842, 'en', 'filesetting', 'Maximum File Upload’s', 'Maximum File Upload’s', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(843, 'en', 'filesetting', 'File Upload’s Maximum Size', 'File Upload’s Maximum Size', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(844, 'en', 'filesetting', 'File Types Allowed', 'File Types Allowed', '2026-03-18 21:53:34', '2026-03-18 21:53:34'),
+(845, 'en', 'general', 'Custom Field', 'Custom Field', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(846, 'en', 'general', 'Custom Field Lists', 'Custom Field Lists', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(847, 'en', 'general', 'Add Custom Field', 'Add Custom Field', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(848, 'en', 'general', 'Field Name', 'Field Name', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(849, 'en', 'general', 'Field Type', 'Field Type', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(850, 'en', 'general', 'Label field name', 'Label field name', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(851, 'en', 'general', 'Field label type', 'Field label type', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(852, 'en', 'general', 'Field options', 'Field options', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(853, 'en', 'general', 'You have to add the comma-separated values.', 'You have to add the comma-separated values.', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(854, 'en', 'general', 'a,k,n', 'a,k,n', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(855, 'en', 'general', 'View On', 'View On', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(856, 'en', 'general', 'Both', 'Both', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(857, 'en', 'general', 'Create Tickets', 'Create Tickets', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(858, 'en', 'general', 'Register', 'Register', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(859, 'en', 'general', 'Required field', 'Required field', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(860, 'en', 'general', 'Privacy', 'Privacy', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(861, 'en', 'general', 'If you select this option, the content in the field will be encrypted.', 'If you select this option, the content in the field will be encrypted.', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(862, 'en', 'general', 'New Custom Field', 'New Custom Field', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(863, 'en', 'alerts', 'Please select required fields.', 'Please select required fields.', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(864, 'en', 'general', 'Edit Custom Field', 'Edit Custom Field', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(865, 'en', 'general', 'Are you sure you want to continue?', 'Are you sure you want to continue?', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(866, 'en', 'general', 'This might erase your records permanently', 'This might erase your records permanently', '2026-03-18 22:04:56', '2026-03-18 22:04:56'),
+(867, 'en', 'general', 'Select', 'Select', '2026-03-18 22:07:51', '2026-03-18 22:07:51'),
+(868, 'en', 'general', 'EOS Indication', 'EOS Indication', '2026-03-18 22:29:59', '2026-03-18 22:29:59'),
+(869, 'en', 'menu', 'My Suspend Tickets', 'My Suspend Tickets', '2026-03-18 22:31:04', '2026-03-18 22:31:04'),
+(870, 'en', 'alerts', 'This might restore your record', 'This might restore your record', '2026-03-18 22:31:10', '2026-03-18 22:31:10'),
+(871, 'en', 'alerts', 'This might delete your records permanently', 'This might delete your records permanently', '2026-03-18 22:31:10', '2026-03-18 22:31:10'),
+(872, 'en', 'general', 'Voilation', 'Voilation', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(873, 'en', 'general', 'Suspend Ticket', 'Suspend Ticket', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(874, 'en', 'general', 'Created At', 'Created At', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(875, 'en', 'general', 'Reply Ticket', 'Reply Ticket', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(876, 'en', 'general', 'Canned Response', 'Canned Response', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(877, 'en', 'general', 'Select Canned Messages', 'Select Canned Messages', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(878, 'en', 'general', 'Solved', 'Solved', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(879, 'en', 'general', 'Closed Reason', 'Closed Reason', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(880, 'en', 'general', 'Select Closed Reason', 'Select Closed Reason', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(881, 'en', 'general', 'By Customer', 'By Customer', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(882, 'en', 'general', 'By Supplier', 'By Supplier', '2026-03-18 23:07:37', '2026-03-18 23:07:37'),
+(883, 'en', 'general', 'Ticket ID', 'Ticket ID', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(884, 'en', 'general', 'Change Category', 'Change Category', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(885, 'en', 'general', 'Open Date', 'Open Date', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(886, 'en', 'general', 'Assign Activity', 'Assign Activity', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(887, 'en', 'general', 'View History', 'View History', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(888, 'en', 'general', 'Created By', 'Created By', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(889, 'en', 'general', 'UTC', 'UTC', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(890, 'en', 'general', 'Ticket Note', 'Ticket Note', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(891, 'en', 'general', 'Leave a message for On-Hold', 'Leave a message for On-Hold', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(892, 'en', 'menu', 'Add Note', 'Add Note', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(893, 'en', 'menu', 'Sending..', 'Sending..', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(894, 'en', 'alerts', 'Are you sure you want to delete this comment?', 'Are you sure you want to delete this comment?', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(895, 'en', 'alerts', 'This might erase your records permanently.', 'This might erase your records permanently.', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(896, 'en', 'menu', 'Category', 'Category', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(897, 'en', 'general', 'Envato Purchase Code', 'Envato Purchase Code', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(898, 'en', 'general', 'Update Your Purchase Code', 'Update Your Purchase Code', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(899, 'en', 'alerts', 'This might suspend the ticket permanently', 'This might suspend the ticket permanently', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(900, 'en', 'alerts', 'This action may remove the ticket from suspension.', 'This action may remove the ticket from suspension.', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(901, 'en', 'general', 'Note:', 'Note:', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(902, 'en', 'general', 'Select Priority', 'Select Priority', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(903, 'en', 'general', 'Puchase Code', 'Puchase Code', '2026-03-18 23:07:38', '2026-03-18 23:07:38'),
+(904, 'en', 'general', 'Create Article', 'Create Article', '2026-03-18 23:11:49', '2026-03-18 23:11:49'),
+(905, 'en', 'general', 'Support Expired: Your support has expired. In order to continue receiving our assistance, please renew your support.', 'Support Expired: Your support has expired. In order to continue receiving our assistance, please renew your support.', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(906, 'en', 'general', 'Support Policy', 'Support Policy', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(907, 'en', 'general', 'How To Renew Item Support', 'How To Renew Item Support', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(908, 'en', 'general', 'Your purchase code has been verified, but product support has expired.', 'Your purchase code has been verified, but product support has expired.', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(909, 'en', 'general', 'I agree with', 'I agree with', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(910, 'en', 'general', 'Terms & Services', 'Terms & Services', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(911, 'en', 'general', 'Create Ticket', 'Create Ticket', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(912, 'en', 'menu', 'Loading..', 'Loading..', '2026-03-18 23:34:05', '2026-03-18 23:34:05'),
+(913, 'en', 'general', 'Multi Assign', 'Multi Assign', '2026-03-18 23:51:43', '2026-03-18 23:51:43'),
+(914, 'en', 'general', 'Unassign', 'Unassign', '2026-03-18 23:51:43', '2026-03-18 23:51:43'),
+(915, 'en', 'general', 'Edit Profile', 'Edit Profile', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(916, 'en', 'general', 'Afghanistan', 'Afghanistan', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(917, 'en', 'general', 'Åland Islands', 'Åland Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(918, 'en', 'general', 'Albania', 'Albania', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(919, 'en', 'general', 'Algeria', 'Algeria', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(920, 'en', 'general', 'American Samoa', 'American Samoa', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(921, 'en', 'general', 'Andorra', 'Andorra', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(922, 'en', 'general', 'Angola', 'Angola', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(923, 'en', 'general', 'Anguilla', 'Anguilla', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(924, 'en', 'general', 'Antarctica', 'Antarctica', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(925, 'en', 'general', 'Antigua and Barbuda', 'Antigua and Barbuda', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(926, 'en', 'general', 'Argentina', 'Argentina', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(927, 'en', 'general', 'Armenia', 'Armenia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(928, 'en', 'general', 'Aruba', 'Aruba', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(929, 'en', 'general', 'Australia', 'Australia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(930, 'en', 'general', 'Austria', 'Austria', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(931, 'en', 'general', 'Azerbaijan', 'Azerbaijan', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(932, 'en', 'general', 'Bahamas', 'Bahamas', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(933, 'en', 'general', 'Bahrain', 'Bahrain', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(934, 'en', 'general', 'Bangladesh', 'Bangladesh', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(935, 'en', 'general', 'Barbados', 'Barbados', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(936, 'en', 'general', 'Belarus', 'Belarus', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(937, 'en', 'general', 'Belgium', 'Belgium', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(938, 'en', 'general', 'Belize', 'Belize', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(939, 'en', 'general', 'Benin', 'Benin', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(940, 'en', 'general', 'Bermuda', 'Bermuda', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(941, 'en', 'general', 'Bhutan', 'Bhutan', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(942, 'en', 'general', 'Bolivia, Plurinational State of', 'Bolivia, Plurinational State of', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(943, 'en', 'general', 'Bonaire, Sint Eustatius and Saba', 'Bonaire, Sint Eustatius and Saba', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(944, 'en', 'general', 'Bosnia and Herzegovina', 'Bosnia and Herzegovina', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(945, 'en', 'general', 'Botswana', 'Botswana', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(946, 'en', 'general', 'Bouvet Island', 'Bouvet Island', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(947, 'en', 'general', 'Brazil', 'Brazil', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(948, 'en', 'general', 'British Indian Ocean Territory', 'British Indian Ocean Territory', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(949, 'en', 'general', 'Brunei Darussalam', 'Brunei Darussalam', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(950, 'en', 'general', 'Bulgaria', 'Bulgaria', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(951, 'en', 'general', 'Burkina Faso', 'Burkina Faso', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(952, 'en', 'general', 'Burundi', 'Burundi', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(953, 'en', 'general', 'Cambodia', 'Cambodia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(954, 'en', 'general', 'Cameroon', 'Cameroon', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(955, 'en', 'general', 'Canada', 'Canada', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(956, 'en', 'general', 'Cape Verde', 'Cape Verde', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(957, 'en', 'general', 'Cayman Islands', 'Cayman Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(958, 'en', 'general', 'Central African Republic', 'Central African Republic', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(959, 'en', 'general', 'Chad', 'Chad', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(960, 'en', 'general', 'Chile', 'Chile', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(961, 'en', 'general', 'China', 'China', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(962, 'en', 'general', 'Christmas Island', 'Christmas Island', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(963, 'en', 'general', 'Cocos (Keeling) Islands', 'Cocos (Keeling) Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(964, 'en', 'general', 'Colombia', 'Colombia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(965, 'en', 'general', 'Comoros', 'Comoros', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(966, 'en', 'general', 'Congo', 'Congo', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(967, 'en', 'general', 'Congo, the Democratic Republic of the', 'Congo, the Democratic Republic of the', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(968, 'en', 'general', 'Cook Islands', 'Cook Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(969, 'en', 'general', 'Costa Rica', 'Costa Rica', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(970, 'en', 'general', 'Côte d\'Ivoire', 'Côte d\'Ivoire', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(971, 'en', 'general', 'Croatia', 'Croatia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(972, 'en', 'general', 'Cuba', 'Cuba', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(973, 'en', 'general', 'Curaçao', 'Curaçao', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(974, 'en', 'general', 'Cyprus', 'Cyprus', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(975, 'en', 'general', 'Czech Republic', 'Czech Republic', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(976, 'en', 'general', 'Denmark', 'Denmark', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(977, 'en', 'general', 'Djibouti', 'Djibouti', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(978, 'en', 'general', 'Dominica', 'Dominica', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(979, 'en', 'general', 'Dominican Republic', 'Dominican Republic', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(980, 'en', 'general', 'Ecuador', 'Ecuador', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(981, 'en', 'general', 'Egypt', 'Egypt', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(982, 'en', 'general', 'El Salvador', 'El Salvador', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(983, 'en', 'general', 'Equatorial Guinea', 'Equatorial Guinea', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(984, 'en', 'general', 'Eritrea', 'Eritrea', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(985, 'en', 'general', 'Estonia', 'Estonia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(986, 'en', 'general', 'Ethiopia', 'Ethiopia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(987, 'en', 'general', 'Falkland Islands (Malvinas)', 'Falkland Islands (Malvinas)', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(988, 'en', 'general', 'Faroe Islands', 'Faroe Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(989, 'en', 'general', 'Fiji', 'Fiji', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(990, 'en', 'general', 'Finland', 'Finland', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(991, 'en', 'general', 'France', 'France', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(992, 'en', 'general', 'French Guiana', 'French Guiana', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(993, 'en', 'general', 'French Polynesia', 'French Polynesia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(994, 'en', 'general', 'French Southern Territories', 'French Southern Territories', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(995, 'en', 'general', 'Gabon', 'Gabon', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(996, 'en', 'general', 'Gambia', 'Gambia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(997, 'en', 'general', 'Georgia', 'Georgia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(998, 'en', 'general', 'Germany', 'Germany', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(999, 'en', 'general', 'Ghana', 'Ghana', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1000, 'en', 'general', 'Gibraltar', 'Gibraltar', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1001, 'en', 'general', 'Greece', 'Greece', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1002, 'en', 'general', 'Greenland', 'Greenland', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1003, 'en', 'general', 'Grenada', 'Grenada', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1004, 'en', 'general', 'Guadeloupe', 'Guadeloupe', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1005, 'en', 'general', 'Guam', 'Guam', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1006, 'en', 'general', 'Guatemala', 'Guatemala', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1007, 'en', 'general', 'Guernsey', 'Guernsey', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1008, 'en', 'general', 'Guinea', 'Guinea', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1009, 'en', 'general', 'Guinea-Bissau', 'Guinea-Bissau', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1010, 'en', 'general', 'Guyana', 'Guyana', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1011, 'en', 'general', 'Haiti', 'Haiti', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1012, 'en', 'general', 'Heard Island and McDonald Mcdonald Islands', 'Heard Island and McDonald Mcdonald Islands', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1013, 'en', 'general', 'Holy See (Vatican City State)', 'Holy See (Vatican City State)', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1014, 'en', 'general', 'Honduras', 'Honduras', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1015, 'en', 'general', 'Hong Kong', 'Hong Kong', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1016, 'en', 'general', 'Hungary', 'Hungary', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1017, 'en', 'general', 'Iceland', 'Iceland', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1018, 'en', 'general', 'India', 'India', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1019, 'en', 'general', 'Indonesia', 'Indonesia', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1020, 'en', 'general', 'Iran, Islamic Republic of', 'Iran, Islamic Republic of', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1021, 'en', 'general', 'Iraq', 'Iraq', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1022, 'en', 'general', 'Ireland', 'Ireland', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1023, 'en', 'general', 'Isle of Man', 'Isle of Man', '2026-03-18 23:58:50', '2026-03-18 23:58:50'),
+(1024, 'en', 'general', 'Israel', 'Israel', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1025, 'en', 'general', 'Italy', 'Italy', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1026, 'en', 'general', 'Jamaica', 'Jamaica', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1027, 'en', 'general', 'Japan', 'Japan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1028, 'en', 'general', 'Jersey', 'Jersey', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1029, 'en', 'general', 'Jordan', 'Jordan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1030, 'en', 'general', 'Kazakhstan', 'Kazakhstan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1031, 'en', 'general', 'Kenya', 'Kenya', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1032, 'en', 'general', 'Kiribati', 'Kiribati', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1033, 'en', 'general', 'Korea, Democratic People\'s Republic of', 'Korea, Democratic People\'s Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1034, 'en', 'general', 'Korea, Republic of', 'Korea, Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1035, 'en', 'general', 'Kuwait', 'Kuwait', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1036, 'en', 'general', 'Kyrgyzstan', 'Kyrgyzstan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1037, 'en', 'general', 'Lao People\'s Democratic Republic', 'Lao People\'s Democratic Republic', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1038, 'en', 'general', 'Latvia', 'Latvia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1039, 'en', 'general', 'Lebanon', 'Lebanon', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1040, 'en', 'general', 'Lesotho', 'Lesotho', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1041, 'en', 'general', 'Liberia', 'Liberia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1042, 'en', 'general', 'Libya', 'Libya', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1043, 'en', 'general', 'Liechtenstein', 'Liechtenstein', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1044, 'en', 'general', 'Lithuania', 'Lithuania', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1045, 'en', 'general', 'Luxembourg', 'Luxembourg', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1046, 'en', 'general', 'Macao', 'Macao', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1047, 'en', 'general', 'Macedonia, the Former Yugoslav Republic of', 'Macedonia, the Former Yugoslav Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1048, 'en', 'general', 'Madagascar', 'Madagascar', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1049, 'en', 'general', 'Malawi', 'Malawi', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1050, 'en', 'general', 'Malaysia', 'Malaysia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1051, 'en', 'general', 'Maldives', 'Maldives', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1052, 'en', 'general', 'Mali', 'Mali', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1053, 'en', 'general', 'Malta', 'Malta', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1054, 'en', 'general', 'Marshall Islands', 'Marshall Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1055, 'en', 'general', 'Martinique', 'Martinique', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1056, 'en', 'general', 'Mauritania', 'Mauritania', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1057, 'en', 'general', 'Mauritius', 'Mauritius', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1058, 'en', 'general', 'Mayotte', 'Mayotte', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1059, 'en', 'general', 'Mexico', 'Mexico', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1060, 'en', 'general', 'Micronesia, Federated States of', 'Micronesia, Federated States of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1061, 'en', 'general', 'Moldova, Republic of', 'Moldova, Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1062, 'en', 'general', 'Monaco', 'Monaco', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1063, 'en', 'general', 'Mongolia', 'Mongolia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1064, 'en', 'general', 'Montenegro', 'Montenegro', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1065, 'en', 'general', 'Montserrat', 'Montserrat', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1066, 'en', 'general', 'Morocco', 'Morocco', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1067, 'en', 'general', 'Mozambique', 'Mozambique', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1068, 'en', 'general', 'Myanmar', 'Myanmar', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1069, 'en', 'general', 'Namibia', 'Namibia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1070, 'en', 'general', 'Nauru', 'Nauru', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1071, 'en', 'general', 'Nepal', 'Nepal', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1072, 'en', 'general', 'Netherlands', 'Netherlands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1073, 'en', 'general', 'New Caledonia', 'New Caledonia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1074, 'en', 'general', 'New Zealand', 'New Zealand', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1075, 'en', 'general', 'Nicaragua', 'Nicaragua', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1076, 'en', 'general', 'Niger', 'Niger', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1077, 'en', 'general', 'Nigeria', 'Nigeria', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1078, 'en', 'general', 'Niue', 'Niue', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1079, 'en', 'general', 'Norfolk Island', 'Norfolk Island', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1080, 'en', 'general', 'Northern Mariana Islands', 'Northern Mariana Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1081, 'en', 'general', 'Norway', 'Norway', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1082, 'en', 'general', 'Oman', 'Oman', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1083, 'en', 'general', 'Pakistan', 'Pakistan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1084, 'en', 'general', 'Palau', 'Palau', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1085, 'en', 'general', 'Palestine, State of', 'Palestine, State of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1086, 'en', 'general', 'Panama', 'Panama', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1087, 'en', 'general', 'Papua New Guinea', 'Papua New Guinea', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1088, 'en', 'general', 'Paraguay', 'Paraguay', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1089, 'en', 'general', 'Peru', 'Peru', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1090, 'en', 'general', 'Philippines', 'Philippines', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1091, 'en', 'general', 'Pitcairn', 'Pitcairn', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1092, 'en', 'general', 'Poland', 'Poland', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1093, 'en', 'general', 'Portugal', 'Portugal', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1094, 'en', 'general', 'Puerto Rico', 'Puerto Rico', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1095, 'en', 'general', 'Qatar', 'Qatar', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1096, 'en', 'general', 'Réunion', 'Réunion', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1097, 'en', 'general', 'Romania', 'Romania', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1098, 'en', 'general', 'Russian Federation', 'Russian Federation', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1099, 'en', 'general', 'Rwanda', 'Rwanda', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1100, 'en', 'general', 'Saint Barthélemy', 'Saint Barthélemy', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1101, 'en', 'general', 'Saint Helena, Ascension and Tristan da Cunha', 'Saint Helena, Ascension and Tristan da Cunha', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1102, 'en', 'general', 'Saint Kitts and Nevis', 'Saint Kitts and Nevis', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1103, 'en', 'general', 'Saint Lucia', 'Saint Lucia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1104, 'en', 'general', 'Saint Martin (French part)', 'Saint Martin (French part)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1105, 'en', 'general', 'Saint Pierre and Miquelon', 'Saint Pierre and Miquelon', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1106, 'en', 'general', 'Saint Vincent and the Grenadines', 'Saint Vincent and the Grenadines', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1107, 'en', 'general', 'Samoa', 'Samoa', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1108, 'en', 'general', 'San Marino', 'San Marino', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1109, 'en', 'general', 'Sao Tome and Principe', 'Sao Tome and Principe', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1110, 'en', 'general', 'Saudi Arabia', 'Saudi Arabia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1111, 'en', 'general', 'Senegal', 'Senegal', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1112, 'en', 'general', 'Serbia', 'Serbia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1113, 'en', 'general', 'Seychelles', 'Seychelles', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1114, 'en', 'general', 'Sierra Leone', 'Sierra Leone', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1115, 'en', 'general', 'Singapore', 'Singapore', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1116, 'en', 'general', 'Sint Maarten (Dutch part)', 'Sint Maarten (Dutch part)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1117, 'en', 'general', 'Slovakia', 'Slovakia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1118, 'en', 'general', 'Slovenia', 'Slovenia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1119, 'en', 'general', 'Solomon Islands', 'Solomon Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1120, 'en', 'general', 'Somalia', 'Somalia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1121, 'en', 'general', 'South Africa', 'South Africa', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1122, 'en', 'general', 'South Georgia and the South Sandwich Islands', 'South Georgia and the South Sandwich Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1123, 'en', 'general', 'South Sudan', 'South Sudan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1124, 'en', 'general', 'Spain', 'Spain', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1125, 'en', 'general', 'Sri Lanka', 'Sri Lanka', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1126, 'en', 'general', 'Sudan', 'Sudan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1127, 'en', 'general', 'Suriname', 'Suriname', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1128, 'en', 'general', 'Svalbard and Jan Mayen', 'Svalbard and Jan Mayen', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1129, 'en', 'general', 'Swaziland', 'Swaziland', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1130, 'en', 'general', 'Sweden', 'Sweden', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1131, 'en', 'general', 'Switzerland', 'Switzerland', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1132, 'en', 'general', 'Syrian Arab Republic', 'Syrian Arab Republic', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1133, 'en', 'general', 'Taiwan', 'Taiwan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1134, 'en', 'general', 'Tajikistan', 'Tajikistan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1135, 'en', 'general', 'Tanzania, United Republic of', 'Tanzania, United Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1136, 'en', 'general', 'Thailand', 'Thailand', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1137, 'en', 'general', 'Timor-Leste', 'Timor-Leste', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1138, 'en', 'general', 'Togo', 'Togo', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1139, 'en', 'general', 'Tokelau', 'Tokelau', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1140, 'en', 'general', 'Tonga', 'Tonga', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1141, 'en', 'general', 'Trinidad and Tobago', 'Trinidad and Tobago', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1142, 'en', 'general', 'Tunisia', 'Tunisia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1143, 'en', 'general', 'Turkey', 'Turkey', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1144, 'en', 'general', 'Turkmenistan', 'Turkmenistan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1145, 'en', 'general', 'Turks and Caicos Islands', 'Turks and Caicos Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1146, 'en', 'general', 'Tuvalu', 'Tuvalu', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1147, 'en', 'general', 'Uganda', 'Uganda', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1148, 'en', 'general', 'Ukraine', 'Ukraine', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1149, 'en', 'general', 'United Arab Emirates', 'United Arab Emirates', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1150, 'en', 'general', 'United Kingdom', 'United Kingdom', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1151, 'en', 'general', 'United States', 'United States', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1152, 'en', 'general', 'United States Minor Outlying Islands', 'United States Minor Outlying Islands', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1153, 'en', 'general', 'Uruguay', 'Uruguay', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1154, 'en', 'general', 'Uzbekistan', 'Uzbekistan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1155, 'en', 'general', 'Vanuatu', 'Vanuatu', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1156, 'en', 'general', 'Venezuela, Bolivarian Republic of', 'Venezuela, Bolivarian Republic of', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1157, 'en', 'general', 'Viet Nam', 'Viet Nam', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1158, 'en', 'general', 'Virgin Islands, British', 'Virgin Islands, British', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1159, 'en', 'general', 'Virgin Islands, U.S.', 'Virgin Islands, U.S.', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1160, 'en', 'general', 'Wallis and Futuna', 'Wallis and Futuna', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1161, 'en', 'general', 'Western Sahara', 'Western Sahara', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1162, 'en', 'general', 'Yemen', 'Yemen', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1163, 'en', 'general', 'Zambia', 'Zambia', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1164, 'en', 'general', 'Zimbabwe', 'Zimbabwe', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1165, 'en', 'general', 'Africa/Abidjan', 'Africa/Abidjan', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1166, 'en', 'general', '(GMT/UTC +00:00)', '(GMT/UTC +00:00)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1167, 'en', 'general', 'Africa/Accra', 'Africa/Accra', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1168, 'en', 'general', 'Africa/Addis_Ababa', 'Africa/Addis_Ababa', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1169, 'en', 'general', '(GMT/UTC +03:00)', '(GMT/UTC +03:00)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1170, 'en', 'general', 'Africa/Algiers', 'Africa/Algiers', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1171, 'en', 'general', '(GMT/UTC +01:00)', '(GMT/UTC +01:00)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1172, 'en', 'general', 'Africa/Asmara', 'Africa/Asmara', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1173, 'en', 'general', 'Africa/Bamako', 'Africa/Bamako', '2026-03-18 23:58:51', '2026-03-18 23:58:51');
+INSERT INTO `translates` (`id`, `lang_code`, `group_langname`, `key`, `value`, `created_at`, `updated_at`) VALUES
+(1174, 'en', 'general', 'Africa/Bangui', 'Africa/Bangui', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1175, 'en', 'general', 'Africa/Banjul', 'Africa/Banjul', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1176, 'en', 'general', 'Africa/Bissau', 'Africa/Bissau', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1177, 'en', 'general', 'Africa/Blantyre', 'Africa/Blantyre', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1178, 'en', 'general', '(GMT/UTC +02:00)', '(GMT/UTC +02:00)', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1179, 'en', 'general', 'Africa/Brazzaville', 'Africa/Brazzaville', '2026-03-18 23:58:51', '2026-03-18 23:58:51'),
+(1180, 'en', 'general', 'Africa/Bujumbura', 'Africa/Bujumbura', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1181, 'en', 'general', 'Africa/Cairo', 'Africa/Cairo', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1182, 'en', 'general', 'Africa/Casablanca', 'Africa/Casablanca', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1183, 'en', 'general', 'Africa/Ceuta', 'Africa/Ceuta', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1184, 'en', 'general', 'Africa/Conakry', 'Africa/Conakry', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1185, 'en', 'general', 'Africa/Dakar', 'Africa/Dakar', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1186, 'en', 'general', 'Africa/Dar_es_Salaam', 'Africa/Dar_es_Salaam', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1187, 'en', 'general', 'Africa/Djibouti', 'Africa/Djibouti', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1188, 'en', 'general', 'Africa/Douala', 'Africa/Douala', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1189, 'en', 'general', 'Africa/El_Aaiun', 'Africa/El_Aaiun', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1190, 'en', 'general', 'Africa/Freetown', 'Africa/Freetown', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1191, 'en', 'general', 'Africa/Gaborone', 'Africa/Gaborone', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1192, 'en', 'general', 'Africa/Harare', 'Africa/Harare', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1193, 'en', 'general', 'Africa/Johannesburg', 'Africa/Johannesburg', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1194, 'en', 'general', 'Africa/Juba', 'Africa/Juba', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1195, 'en', 'general', 'Africa/Kampala', 'Africa/Kampala', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1196, 'en', 'general', 'Africa/Khartoum', 'Africa/Khartoum', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1197, 'en', 'general', 'Africa/Kigali', 'Africa/Kigali', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1198, 'en', 'general', 'Africa/Kinshasa', 'Africa/Kinshasa', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1199, 'en', 'general', 'Africa/Lagos', 'Africa/Lagos', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1200, 'en', 'general', 'Africa/Libreville', 'Africa/Libreville', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1201, 'en', 'general', 'Africa/Lome', 'Africa/Lome', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1202, 'en', 'general', 'Africa/Luanda', 'Africa/Luanda', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1203, 'en', 'general', 'Africa/Lubumbashi', 'Africa/Lubumbashi', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1204, 'en', 'general', 'Africa/Lusaka', 'Africa/Lusaka', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1205, 'en', 'general', 'Africa/Malabo', 'Africa/Malabo', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1206, 'en', 'general', 'Africa/Maputo', 'Africa/Maputo', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1207, 'en', 'general', 'Africa/Maseru', 'Africa/Maseru', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1208, 'en', 'general', 'Africa/Mbabane', 'Africa/Mbabane', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1209, 'en', 'general', 'Africa/Mogadishu', 'Africa/Mogadishu', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1210, 'en', 'general', 'Africa/Monrovia', 'Africa/Monrovia', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1211, 'en', 'general', 'Africa/Nairobi', 'Africa/Nairobi', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1212, 'en', 'general', 'Africa/Ndjamena', 'Africa/Ndjamena', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1213, 'en', 'general', 'Africa/Niamey', 'Africa/Niamey', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1214, 'en', 'general', 'Africa/Nouakchott', 'Africa/Nouakchott', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1215, 'en', 'general', 'Africa/Ouagadougou', 'Africa/Ouagadougou', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1216, 'en', 'general', 'Africa/Porto-Novo', 'Africa/Porto-Novo', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1217, 'en', 'general', 'Africa/Sao_Tome', 'Africa/Sao_Tome', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1218, 'en', 'general', 'Africa/Tripoli', 'Africa/Tripoli', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1219, 'en', 'general', 'Africa/Tunis', 'Africa/Tunis', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1220, 'en', 'general', 'Africa/Windhoek', 'Africa/Windhoek', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1221, 'en', 'general', 'America/Adak', 'America/Adak', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1222, 'en', 'general', '(GMT/UTC -09:00)', '(GMT/UTC -09:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1223, 'en', 'general', 'America/Anchorage', 'America/Anchorage', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1224, 'en', 'general', '(GMT/UTC -08:00)', '(GMT/UTC -08:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1225, 'en', 'general', 'America/Anguilla', 'America/Anguilla', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1226, 'en', 'general', '(GMT/UTC -04:00)', '(GMT/UTC -04:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1227, 'en', 'general', 'America/Antigua', 'America/Antigua', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1228, 'en', 'general', 'America/Araguaina', 'America/Araguaina', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1229, 'en', 'general', '(GMT/UTC -03:00)', '(GMT/UTC -03:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1230, 'en', 'general', 'America/Argentina/Buenos_Aires', 'America/Argentina/Buenos_Aires', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1231, 'en', 'general', 'America/Argentina/Catamarca', 'America/Argentina/Catamarca', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1232, 'en', 'general', 'America/Argentina/Cordoba', 'America/Argentina/Cordoba', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1233, 'en', 'general', 'America/Argentina/Jujuy', 'America/Argentina/Jujuy', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1234, 'en', 'general', 'America/Argentina/La_Rioja', 'America/Argentina/La_Rioja', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1235, 'en', 'general', 'America/Argentina/Mendoza', 'America/Argentina/Mendoza', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1236, 'en', 'general', 'America/Argentina/Rio_Gallegos', 'America/Argentina/Rio_Gallegos', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1237, 'en', 'general', 'America/Argentina/Salta', 'America/Argentina/Salta', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1238, 'en', 'general', 'America/Argentina/San_Juan', 'America/Argentina/San_Juan', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1239, 'en', 'general', 'America/Argentina/San_Luis', 'America/Argentina/San_Luis', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1240, 'en', 'general', 'America/Argentina/Tucuman', 'America/Argentina/Tucuman', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1241, 'en', 'general', 'America/Argentina/Ushuaia', 'America/Argentina/Ushuaia', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1242, 'en', 'general', 'America/Aruba', 'America/Aruba', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1243, 'en', 'general', 'America/Asuncion', 'America/Asuncion', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1244, 'en', 'general', 'America/Atikokan', 'America/Atikokan', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1245, 'en', 'general', '(GMT/UTC -05:00)', '(GMT/UTC -05:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1246, 'en', 'general', 'America/Bahia', 'America/Bahia', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1247, 'en', 'general', 'America/Bahia_Banderas', 'America/Bahia_Banderas', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1248, 'en', 'general', 'America/Barbados', 'America/Barbados', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1249, 'en', 'general', 'America/Belem', 'America/Belem', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1250, 'en', 'general', 'America/Belize', 'America/Belize', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1251, 'en', 'general', '(GMT/UTC -06:00)', '(GMT/UTC -06:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1252, 'en', 'general', 'America/Blanc-Sablon', 'America/Blanc-Sablon', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1253, 'en', 'general', 'America/Boa_Vista', 'America/Boa_Vista', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1254, 'en', 'general', 'America/Bogota', 'America/Bogota', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1255, 'en', 'general', 'America/Boise', 'America/Boise', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1256, 'en', 'general', 'America/Cambridge_Bay', 'America/Cambridge_Bay', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1257, 'en', 'general', 'America/Campo_Grande', 'America/Campo_Grande', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1258, 'en', 'general', 'America/Cancun', 'America/Cancun', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1259, 'en', 'general', 'America/Caracas', 'America/Caracas', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1260, 'en', 'general', 'America/Cayenne', 'America/Cayenne', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1261, 'en', 'general', 'America/Cayman', 'America/Cayman', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1262, 'en', 'general', 'America/Chicago', 'America/Chicago', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1263, 'en', 'general', 'America/Chihuahua', 'America/Chihuahua', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1264, 'en', 'general', 'America/Costa_Rica', 'America/Costa_Rica', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1265, 'en', 'general', 'America/Creston', 'America/Creston', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1266, 'en', 'general', '(GMT/UTC -07:00)', '(GMT/UTC -07:00)', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1267, 'en', 'general', 'America/Cuiaba', 'America/Cuiaba', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1268, 'en', 'general', 'America/Curacao', 'America/Curacao', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1269, 'en', 'general', 'America/Danmarkshavn', 'America/Danmarkshavn', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1270, 'en', 'general', 'America/Dawson', 'America/Dawson', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1271, 'en', 'general', 'America/Dawson_Creek', 'America/Dawson_Creek', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1272, 'en', 'general', 'America/Denver', 'America/Denver', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1273, 'en', 'general', 'America/Detroit', 'America/Detroit', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1274, 'en', 'general', 'America/Dominica', 'America/Dominica', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1275, 'en', 'general', 'America/Edmonton', 'America/Edmonton', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1276, 'en', 'general', 'America/Eirunepe', 'America/Eirunepe', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1277, 'en', 'general', 'America/El_Salvador', 'America/El_Salvador', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1278, 'en', 'general', 'America/Fort_Nelson', 'America/Fort_Nelson', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1279, 'en', 'general', 'America/Fortaleza', 'America/Fortaleza', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1280, 'en', 'general', 'America/Glace_Bay', 'America/Glace_Bay', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1281, 'en', 'general', 'America/Goose_Bay', 'America/Goose_Bay', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1282, 'en', 'general', 'America/Grand_Turk', 'America/Grand_Turk', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1283, 'en', 'general', 'America/Grenada', 'America/Grenada', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1284, 'en', 'general', 'America/Guadeloupe', 'America/Guadeloupe', '2026-03-18 23:58:52', '2026-03-18 23:58:52'),
+(1285, 'en', 'general', 'America/Guatemala', 'America/Guatemala', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1286, 'en', 'general', 'America/Guayaquil', 'America/Guayaquil', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1287, 'en', 'general', 'America/Guyana', 'America/Guyana', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1288, 'en', 'general', 'America/Halifax', 'America/Halifax', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1289, 'en', 'general', 'America/Havana', 'America/Havana', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1290, 'en', 'general', 'America/Hermosillo', 'America/Hermosillo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1291, 'en', 'general', 'America/Indiana/Indianapolis', 'America/Indiana/Indianapolis', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1292, 'en', 'general', 'America/Indiana/Knox', 'America/Indiana/Knox', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1293, 'en', 'general', 'America/Indiana/Marengo', 'America/Indiana/Marengo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1294, 'en', 'general', 'America/Indiana/Petersburg', 'America/Indiana/Petersburg', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1295, 'en', 'general', 'America/Indiana/Tell_City', 'America/Indiana/Tell_City', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1296, 'en', 'general', 'America/Indiana/Vevay', 'America/Indiana/Vevay', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1297, 'en', 'general', 'America/Indiana/Vincennes', 'America/Indiana/Vincennes', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1298, 'en', 'general', 'America/Indiana/Winamac', 'America/Indiana/Winamac', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1299, 'en', 'general', 'America/Inuvik', 'America/Inuvik', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1300, 'en', 'general', 'America/Iqaluit', 'America/Iqaluit', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1301, 'en', 'general', 'America/Jamaica', 'America/Jamaica', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1302, 'en', 'general', 'America/Juneau', 'America/Juneau', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1303, 'en', 'general', 'America/Kentucky/Louisville', 'America/Kentucky/Louisville', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1304, 'en', 'general', 'America/Kentucky/Monticello', 'America/Kentucky/Monticello', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1305, 'en', 'general', 'America/Kralendijk', 'America/Kralendijk', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1306, 'en', 'general', 'America/La_Paz', 'America/La_Paz', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1307, 'en', 'general', 'America/Lima', 'America/Lima', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1308, 'en', 'general', 'America/Los_Angeles', 'America/Los_Angeles', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1309, 'en', 'general', 'America/Lower_Princes', 'America/Lower_Princes', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1310, 'en', 'general', 'America/Maceio', 'America/Maceio', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1311, 'en', 'general', 'America/Managua', 'America/Managua', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1312, 'en', 'general', 'America/Manaus', 'America/Manaus', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1313, 'en', 'general', 'America/Marigot', 'America/Marigot', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1314, 'en', 'general', 'America/Martinique', 'America/Martinique', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1315, 'en', 'general', 'America/Matamoros', 'America/Matamoros', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1316, 'en', 'general', 'America/Mazatlan', 'America/Mazatlan', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1317, 'en', 'general', 'America/Menominee', 'America/Menominee', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1318, 'en', 'general', 'America/Merida', 'America/Merida', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1319, 'en', 'general', 'America/Metlakatla', 'America/Metlakatla', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1320, 'en', 'general', 'America/Mexico_City', 'America/Mexico_City', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1321, 'en', 'general', 'America/Miquelon', 'America/Miquelon', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1322, 'en', 'general', '(GMT/UTC -02:00)', '(GMT/UTC -02:00)', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1323, 'en', 'general', 'America/Moncton', 'America/Moncton', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1324, 'en', 'general', 'America/Monterrey', 'America/Monterrey', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1325, 'en', 'general', 'America/Montevideo', 'America/Montevideo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1326, 'en', 'general', 'America/Montserrat', 'America/Montserrat', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1327, 'en', 'general', 'America/Nassau', 'America/Nassau', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1328, 'en', 'general', 'America/New_York', 'America/New_York', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1329, 'en', 'general', 'America/Nipigon', 'America/Nipigon', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1330, 'en', 'general', 'America/Nome', 'America/Nome', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1331, 'en', 'general', 'America/Noronha', 'America/Noronha', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1332, 'en', 'general', 'America/North_Dakota/Beulah', 'America/North_Dakota/Beulah', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1333, 'en', 'general', 'America/North_Dakota/Center', 'America/North_Dakota/Center', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1334, 'en', 'general', 'America/North_Dakota/New_Salem', 'America/North_Dakota/New_Salem', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1335, 'en', 'general', 'America/Nuuk', 'America/Nuuk', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1336, 'en', 'general', 'America/Ojinaga', 'America/Ojinaga', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1337, 'en', 'general', 'America/Panama', 'America/Panama', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1338, 'en', 'general', 'America/Pangnirtung', 'America/Pangnirtung', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1339, 'en', 'general', 'America/Paramaribo', 'America/Paramaribo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1340, 'en', 'general', 'America/Phoenix', 'America/Phoenix', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1341, 'en', 'general', 'America/Port-au-Prince', 'America/Port-au-Prince', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1342, 'en', 'general', 'America/Port_of_Spain', 'America/Port_of_Spain', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1343, 'en', 'general', 'America/Porto_Velho', 'America/Porto_Velho', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1344, 'en', 'general', 'America/Puerto_Rico', 'America/Puerto_Rico', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1345, 'en', 'general', 'America/Punta_Arenas', 'America/Punta_Arenas', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1346, 'en', 'general', 'America/Rainy_River', 'America/Rainy_River', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1347, 'en', 'general', 'America/Rankin_Inlet', 'America/Rankin_Inlet', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1348, 'en', 'general', 'America/Recife', 'America/Recife', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1349, 'en', 'general', 'America/Regina', 'America/Regina', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1350, 'en', 'general', 'America/Resolute', 'America/Resolute', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1351, 'en', 'general', 'America/Rio_Branco', 'America/Rio_Branco', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1352, 'en', 'general', 'America/Santarem', 'America/Santarem', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1353, 'en', 'general', 'America/Santiago', 'America/Santiago', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1354, 'en', 'general', 'America/Santo_Domingo', 'America/Santo_Domingo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1355, 'en', 'general', 'America/Sao_Paulo', 'America/Sao_Paulo', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1356, 'en', 'general', 'America/Scoresbysund', 'America/Scoresbysund', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1357, 'en', 'general', 'America/Sitka', 'America/Sitka', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1358, 'en', 'general', 'America/St_Barthelemy', 'America/St_Barthelemy', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1359, 'en', 'general', 'America/St_Johns', 'America/St_Johns', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1360, 'en', 'general', '(GMT/UTC -02:30)', '(GMT/UTC -02:30)', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1361, 'en', 'general', 'America/St_Kitts', 'America/St_Kitts', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1362, 'en', 'general', 'America/St_Lucia', 'America/St_Lucia', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1363, 'en', 'general', 'America/St_Thomas', 'America/St_Thomas', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1364, 'en', 'general', 'America/St_Vincent', 'America/St_Vincent', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1365, 'en', 'general', 'America/Swift_Current', 'America/Swift_Current', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1366, 'en', 'general', 'America/Tegucigalpa', 'America/Tegucigalpa', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1367, 'en', 'general', 'America/Thule', 'America/Thule', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1368, 'en', 'general', 'America/Thunder_Bay', 'America/Thunder_Bay', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1369, 'en', 'general', 'America/Tijuana', 'America/Tijuana', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1370, 'en', 'general', 'America/Toronto', 'America/Toronto', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1371, 'en', 'general', 'America/Tortola', 'America/Tortola', '2026-03-18 23:58:53', '2026-03-18 23:58:53'),
+(1372, 'en', 'general', 'America/Vancouver', 'America/Vancouver', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1373, 'en', 'general', 'America/Whitehorse', 'America/Whitehorse', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1374, 'en', 'general', 'America/Winnipeg', 'America/Winnipeg', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1375, 'en', 'general', 'America/Yakutat', 'America/Yakutat', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1376, 'en', 'general', 'America/Yellowknife', 'America/Yellowknife', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1377, 'en', 'general', 'Antarctica/Casey', 'Antarctica/Casey', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1378, 'en', 'general', '(GMT/UTC +11:00)', '(GMT/UTC +11:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1379, 'en', 'general', 'Antarctica/Davis', 'Antarctica/Davis', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1380, 'en', 'general', '(GMT/UTC +07:00)', '(GMT/UTC +07:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1381, 'en', 'general', 'Antarctica/DumontDUrville', 'Antarctica/DumontDUrville', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1382, 'en', 'general', '(GMT/UTC +10:00)', '(GMT/UTC +10:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1383, 'en', 'general', 'Antarctica/Macquarie', 'Antarctica/Macquarie', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1384, 'en', 'general', 'Antarctica/Mawson', 'Antarctica/Mawson', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1385, 'en', 'general', '(GMT/UTC +05:00)', '(GMT/UTC +05:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1386, 'en', 'general', 'Antarctica/McMurdo', 'Antarctica/McMurdo', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1387, 'en', 'general', '(GMT/UTC +12:00)', '(GMT/UTC +12:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1388, 'en', 'general', 'Antarctica/Palmer', 'Antarctica/Palmer', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1389, 'en', 'general', 'Antarctica/Rothera', 'Antarctica/Rothera', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1390, 'en', 'general', 'Antarctica/Syowa', 'Antarctica/Syowa', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1391, 'en', 'general', 'Antarctica/Troll', 'Antarctica/Troll', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1392, 'en', 'general', 'Antarctica/Vostok', 'Antarctica/Vostok', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1393, 'en', 'general', '(GMT/UTC +06:00)', '(GMT/UTC +06:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1394, 'en', 'general', 'Arctic/Longyearbyen', 'Arctic/Longyearbyen', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1395, 'en', 'general', 'Asia/Hebron', 'Asia/Hebron', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1396, 'en', 'general', 'Asia/Ho_Chi_Minh', 'Asia/Ho_Chi_Minh', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1397, 'en', 'general', 'Asia/Hong_Kong', 'Asia/Hong_Kong', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1398, 'en', 'general', '(GMT/UTC +08:00)', '(GMT/UTC +08:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1399, 'en', 'general', 'Asia/Hovd', 'Asia/Hovd', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1400, 'en', 'general', 'Asia/Irkutsk', 'Asia/Irkutsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1401, 'en', 'general', 'Asia/Jakarta', 'Asia/Jakarta', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1402, 'en', 'general', 'Asia/Jayapura', 'Asia/Jayapura', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1403, 'en', 'general', '(GMT/UTC +09:00)', '(GMT/UTC +09:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1404, 'en', 'general', 'Asia/Jerusalem', 'Asia/Jerusalem', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1405, 'en', 'general', 'Asia/Kabul', 'Asia/Kabul', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1406, 'en', 'general', '(GMT/UTC +04:30)', '(GMT/UTC +04:30)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1407, 'en', 'general', 'Asia/Kamchatka', 'Asia/Kamchatka', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1408, 'en', 'general', 'Asia/Karachi', 'Asia/Karachi', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1409, 'en', 'general', 'Asia/Kathmandu', 'Asia/Kathmandu', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1410, 'en', 'general', '(GMT/UTC +05:45)', '(GMT/UTC +05:45)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1411, 'en', 'general', 'Asia/Khandyga', 'Asia/Khandyga', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1412, 'en', 'general', 'Asia/Kolkata', 'Asia/Kolkata', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1413, 'en', 'general', '(GMT/UTC +05:30)', '(GMT/UTC +05:30)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1414, 'en', 'general', 'Asia/Krasnoyarsk', 'Asia/Krasnoyarsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1415, 'en', 'general', 'Asia/Kuala_Lumpur', 'Asia/Kuala_Lumpur', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1416, 'en', 'general', 'Asia/Kuching', 'Asia/Kuching', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1417, 'en', 'general', 'Asia/Kuwait', 'Asia/Kuwait', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1418, 'en', 'general', 'Asia/Macau', 'Asia/Macau', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1419, 'en', 'general', 'Asia/Magadan', 'Asia/Magadan', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1420, 'en', 'general', 'Asia/Makassar', 'Asia/Makassar', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1421, 'en', 'general', 'Asia/Manila', 'Asia/Manila', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1422, 'en', 'general', 'Asia/Muscat', 'Asia/Muscat', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1423, 'en', 'general', '(GMT/UTC +04:00)', '(GMT/UTC +04:00)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1424, 'en', 'general', 'Asia/Nicosia', 'Asia/Nicosia', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1425, 'en', 'general', 'Asia/Novokuznetsk', 'Asia/Novokuznetsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1426, 'en', 'general', 'Asia/Novosibirsk', 'Asia/Novosibirsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1427, 'en', 'general', 'Asia/Omsk', 'Asia/Omsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1428, 'en', 'general', 'Asia/Oral', 'Asia/Oral', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1429, 'en', 'general', 'Asia/Phnom_Penh', 'Asia/Phnom_Penh', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1430, 'en', 'general', 'Asia/Pontianak', 'Asia/Pontianak', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1431, 'en', 'general', 'Asia/Pyongyang', 'Asia/Pyongyang', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1432, 'en', 'general', 'Asia/Qatar', 'Asia/Qatar', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1433, 'en', 'general', 'Asia/Qostanay', 'Asia/Qostanay', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1434, 'en', 'general', 'Asia/Qyzylorda', 'Asia/Qyzylorda', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1435, 'en', 'general', 'Asia/Riyadh', 'Asia/Riyadh', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1436, 'en', 'general', 'Asia/Sakhalin', 'Asia/Sakhalin', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1437, 'en', 'general', 'Asia/Samarkand', 'Asia/Samarkand', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1438, 'en', 'general', 'Asia/Seoul', 'Asia/Seoul', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1439, 'en', 'general', 'Asia/Shanghai', 'Asia/Shanghai', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1440, 'en', 'general', 'Asia/Singapore', 'Asia/Singapore', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1441, 'en', 'general', 'Asia/Srednekolymsk', 'Asia/Srednekolymsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1442, 'en', 'general', 'Asia/Taipei', 'Asia/Taipei', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1443, 'en', 'general', 'Asia/Tashkent', 'Asia/Tashkent', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1444, 'en', 'general', 'Asia/Tbilisi', 'Asia/Tbilisi', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1445, 'en', 'general', 'Asia/Tehran', 'Asia/Tehran', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1446, 'en', 'general', 'Asia/Thimphu', 'Asia/Thimphu', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1447, 'en', 'general', 'Asia/Tokyo', 'Asia/Tokyo', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1448, 'en', 'general', 'Asia/Tomsk', 'Asia/Tomsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1449, 'en', 'general', 'Asia/Ulaanbaatar', 'Asia/Ulaanbaatar', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1450, 'en', 'general', 'Asia/Urumqi', 'Asia/Urumqi', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1451, 'en', 'general', 'Asia/Ust-Nera', 'Asia/Ust-Nera', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1452, 'en', 'general', 'Asia/Vientiane', 'Asia/Vientiane', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1453, 'en', 'general', 'Asia/Vladivostok', 'Asia/Vladivostok', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1454, 'en', 'general', 'Asia/Yakutsk', 'Asia/Yakutsk', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1455, 'en', 'general', 'Asia/Yangon', 'Asia/Yangon', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1456, 'en', 'general', '(GMT/UTC +06:30)', '(GMT/UTC +06:30)', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1457, 'en', 'general', 'Asia/Yekaterinburg', 'Asia/Yekaterinburg', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1458, 'en', 'general', 'Asia/Yerevan', 'Asia/Yerevan', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1459, 'en', 'general', 'Asia/Aden', 'Asia/Aden', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1460, 'en', 'general', 'Asia/Almaty', 'Asia/Almaty', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1461, 'en', 'general', 'Asia/Amman', 'Asia/Amman', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1462, 'en', 'general', 'Asia/Anadyr', 'Asia/Anadyr', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1463, 'en', 'general', 'Asia/Aqtau', 'Asia/Aqtau', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1464, 'en', 'general', 'Asia/Aqtobe', 'Asia/Aqtobe', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1465, 'en', 'general', 'Asia/Ashgabat', 'Asia/Ashgabat', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1466, 'en', 'general', 'Asia/Atyrau', 'Asia/Atyrau', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1467, 'en', 'general', 'Asia/Baghdad', 'Asia/Baghdad', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1468, 'en', 'general', 'Asia/Bahrain', 'Asia/Bahrain', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1469, 'en', 'general', 'Asia/Baku', 'Asia/Baku', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1470, 'en', 'general', 'Asia/Bangkok', 'Asia/Bangkok', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1471, 'en', 'general', 'Asia/Barnaul', 'Asia/Barnaul', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1472, 'en', 'general', 'Asia/Beirut', 'Asia/Beirut', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1473, 'en', 'general', 'Asia/Bishkek', 'Asia/Bishkek', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1474, 'en', 'general', 'Asia/Brunei', 'Asia/Brunei', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1475, 'en', 'general', 'Asia/Chita', 'Asia/Chita', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1476, 'en', 'general', 'Asia/Choibalsan', 'Asia/Choibalsan', '2026-03-18 23:58:54', '2026-03-18 23:58:54'),
+(1477, 'en', 'general', 'Asia/Colombo', 'Asia/Colombo', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1478, 'en', 'general', 'Asia/Damascus', 'Asia/Damascus', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1479, 'en', 'general', 'Asia/Dhaka', 'Asia/Dhaka', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1480, 'en', 'general', 'Asia/Dili', 'Asia/Dili', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1481, 'en', 'general', 'Asia/Dubai', 'Asia/Dubai', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1482, 'en', 'general', 'Asia/Dushanbe', 'Asia/Dushanbe', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1483, 'en', 'general', 'Asia/Famagusta', 'Asia/Famagusta', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1484, 'en', 'general', 'Asia/Gaza', 'Asia/Gaza', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1485, 'en', 'general', 'Atlantic/Azores', 'Atlantic/Azores', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1486, 'en', 'general', 'Atlantic/Bermuda', 'Atlantic/Bermuda', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1487, 'en', 'general', 'Atlantic/Canary', 'Atlantic/Canary', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1488, 'en', 'general', 'Atlantic/Cape_Verde', 'Atlantic/Cape_Verde', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1489, 'en', 'general', '(GMT/UTC -01:00)', '(GMT/UTC -01:00)', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1490, 'en', 'general', 'Atlantic/Faroe', 'Atlantic/Faroe', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1491, 'en', 'general', 'Atlantic/Madeira', 'Atlantic/Madeira', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1492, 'en', 'general', 'Atlantic/Reykjavik', 'Atlantic/Reykjavik', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1493, 'en', 'general', 'Atlantic/South_Georgia', 'Atlantic/South_Georgia', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1494, 'en', 'general', 'Atlantic/St_Helena', 'Atlantic/St_Helena', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1495, 'en', 'general', 'Atlantic/Stanley', 'Atlantic/Stanley', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1496, 'en', 'general', 'Australia/Adelaide', 'Australia/Adelaide', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1497, 'en', 'general', '(GMT/UTC +09:30)', '(GMT/UTC +09:30)', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1498, 'en', 'general', 'Australia/Brisbane', 'Australia/Brisbane', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1499, 'en', 'general', 'Australia/Broken_Hill', 'Australia/Broken_Hill', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1500, 'en', 'general', 'Australia/Darwin', 'Australia/Darwin', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1501, 'en', 'general', 'Australia/Eucla', 'Australia/Eucla', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1502, 'en', 'general', '(GMT/UTC +08:45)', '(GMT/UTC +08:45)', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1503, 'en', 'general', 'Australia/Hobart', 'Australia/Hobart', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1504, 'en', 'general', 'Australia/Lindeman', 'Australia/Lindeman', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1505, 'en', 'general', 'Australia/Lord_Howe', 'Australia/Lord_Howe', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1506, 'en', 'general', '(GMT/UTC +10:30)', '(GMT/UTC +10:30)', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1507, 'en', 'general', 'Australia/Melbourne', 'Australia/Melbourne', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1508, 'en', 'general', 'Australia/Perth', 'Australia/Perth', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1509, 'en', 'general', 'Australia/Sydney', 'Australia/Sydney', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1510, 'en', 'general', 'Europe/Amsterdam', 'Europe/Amsterdam', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1511, 'en', 'general', 'Europe/Andorra', 'Europe/Andorra', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1512, 'en', 'general', 'Europe/Astrakhan', 'Europe/Astrakhan', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1513, 'en', 'general', 'Europe/Athens', 'Europe/Athens', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1514, 'en', 'general', 'Europe/Belgrade', 'Europe/Belgrade', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1515, 'en', 'general', 'Europe/Berlin', 'Europe/Berlin', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1516, 'en', 'general', 'Europe/Bratislava', 'Europe/Bratislava', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1517, 'en', 'general', 'Europe/Brussels', 'Europe/Brussels', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1518, 'en', 'general', 'Europe/Bucharest', 'Europe/Bucharest', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1519, 'en', 'general', 'Europe/Budapest', 'Europe/Budapest', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1520, 'en', 'general', 'Europe/Busingen', 'Europe/Busingen', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1521, 'en', 'general', 'Europe/Chisinau', 'Europe/Chisinau', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1522, 'en', 'general', 'Europe/Copenhagen', 'Europe/Copenhagen', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1523, 'en', 'general', 'Europe/Dublin', 'Europe/Dublin', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1524, 'en', 'general', 'Europe/Gibraltar', 'Europe/Gibraltar', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1525, 'en', 'general', 'Europe/Guernsey', 'Europe/Guernsey', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1526, 'en', 'general', 'Europe/Helsinki', 'Europe/Helsinki', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1527, 'en', 'general', 'Europe/Isle_of_Man', 'Europe/Isle_of_Man', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1528, 'en', 'general', 'Europe/Istanbul', 'Europe/Istanbul', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1529, 'en', 'general', 'Europe/Jersey', 'Europe/Jersey', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1530, 'en', 'general', 'Europe/Kaliningrad', 'Europe/Kaliningrad', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1531, 'en', 'general', 'Europe/Kiev', 'Europe/Kiev', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1532, 'en', 'general', 'Europe/Kirov', 'Europe/Kirov', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1533, 'en', 'general', 'Europe/Lisbon', 'Europe/Lisbon', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1534, 'en', 'general', 'Europe/Ljubljana', 'Europe/Ljubljana', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1535, 'en', 'general', 'Europe/London', 'Europe/London', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1536, 'en', 'general', 'Europe/Luxembourg', 'Europe/Luxembourg', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1537, 'en', 'general', 'Europe/Madrid', 'Europe/Madrid', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1538, 'en', 'general', 'Europe/Malta', 'Europe/Malta', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1539, 'en', 'general', 'Europe/Mariehamn', 'Europe/Mariehamn', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1540, 'en', 'general', 'Europe/Minsk', 'Europe/Minsk', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1541, 'en', 'general', 'Europe/Monaco', 'Europe/Monaco', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1542, 'en', 'general', 'Europe/Moscow', 'Europe/Moscow', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1543, 'en', 'general', 'Europe/Oslo', 'Europe/Oslo', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1544, 'en', 'general', 'Europe/Paris', 'Europe/Paris', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1545, 'en', 'general', 'Europe/Podgorica', 'Europe/Podgorica', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1546, 'en', 'general', 'Europe/Prague', 'Europe/Prague', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1547, 'en', 'general', 'Europe/Riga', 'Europe/Riga', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1548, 'en', 'general', 'Europe/Rome', 'Europe/Rome', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1549, 'en', 'general', 'Europe/Samara', 'Europe/Samara', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1550, 'en', 'general', 'Europe/San_Marino', 'Europe/San_Marino', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1551, 'en', 'general', 'Europe/Sarajevo', 'Europe/Sarajevo', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1552, 'en', 'general', 'Europe/Saratov', 'Europe/Saratov', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1553, 'en', 'general', 'Europe/Simferopol', 'Europe/Simferopol', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1554, 'en', 'general', 'Europe/Skopje', 'Europe/Skopje', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1555, 'en', 'general', 'Europe/Sofia', 'Europe/Sofia', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1556, 'en', 'general', 'Europe/Stockholm', 'Europe/Stockholm', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1557, 'en', 'general', 'Europe/Tallinn', 'Europe/Tallinn', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1558, 'en', 'general', 'Europe/Tirane', 'Europe/Tirane', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1559, 'en', 'general', 'Europe/Ulyanovsk', 'Europe/Ulyanovsk', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1560, 'en', 'general', 'Europe/Uzhgorod', 'Europe/Uzhgorod', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1561, 'en', 'general', 'Europe/Vaduz', 'Europe/Vaduz', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1562, 'en', 'general', 'Europe/Vatican', 'Europe/Vatican', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1563, 'en', 'general', 'Europe/Vienna', 'Europe/Vienna', '2026-03-18 23:58:55', '2026-03-18 23:58:55'),
+(1564, 'en', 'general', 'Europe/Vilnius', 'Europe/Vilnius', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1565, 'en', 'general', 'Europe/Volgograd', 'Europe/Volgograd', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1566, 'en', 'general', 'Europe/Warsaw', 'Europe/Warsaw', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1567, 'en', 'general', 'Europe/Zagreb', 'Europe/Zagreb', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1568, 'en', 'general', 'Europe/Zaporozhye', 'Europe/Zaporozhye', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1569, 'en', 'general', 'Europe/Zurich', 'Europe/Zurich', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1570, 'en', 'general', 'Indian/Antananarivo', 'Indian/Antananarivo', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1571, 'en', 'general', 'Indian/Chagos', 'Indian/Chagos', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1572, 'en', 'general', 'Indian/Christmas', 'Indian/Christmas', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1573, 'en', 'general', 'Indian/Cocos', 'Indian/Cocos', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1574, 'en', 'general', 'Indian/Comoro', 'Indian/Comoro', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1575, 'en', 'general', 'Indian/Kerguelen', 'Indian/Kerguelen', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1576, 'en', 'general', 'Indian/Mahe', 'Indian/Mahe', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1577, 'en', 'general', 'Indian/Maldives', 'Indian/Maldives', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1578, 'en', 'general', 'Indian/Mauritius', 'Indian/Mauritius', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1579, 'en', 'general', 'Indian/Mayotte', 'Indian/Mayotte', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1580, 'en', 'general', 'Indian/Reunion', 'Indian/Reunion', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1581, 'en', 'general', 'Pacific/Apia', 'Pacific/Apia', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1582, 'en', 'general', '(GMT/UTC +13:00)', '(GMT/UTC +13:00)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1583, 'en', 'general', 'Pacific/Auckland', 'Pacific/Auckland', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1584, 'en', 'general', 'Pacific/Bougainville', 'Pacific/Bougainville', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1585, 'en', 'general', 'Pacific/Chatham', 'Pacific/Chatham', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1586, 'en', 'general', '(GMT/UTC +12:45)', '(GMT/UTC +12:45)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1587, 'en', 'general', 'Pacific/Chuuk', 'Pacific/Chuuk', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1588, 'en', 'general', 'Pacific/Easter', 'Pacific/Easter', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1589, 'en', 'general', 'Pacific/Efate', 'Pacific/Efate', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1590, 'en', 'general', 'Pacific/Fakaofo', 'Pacific/Fakaofo', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1591, 'en', 'general', 'Pacific/Fiji', 'Pacific/Fiji', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1592, 'en', 'general', 'Pacific/Funafuti', 'Pacific/Funafuti', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1593, 'en', 'general', 'Pacific/Galapagos', 'Pacific/Galapagos', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1594, 'en', 'general', 'Pacific/Gambier', 'Pacific/Gambier', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1595, 'en', 'general', 'Pacific/Guadalcanal', 'Pacific/Guadalcanal', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1596, 'en', 'general', 'Pacific/Guam', 'Pacific/Guam', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1597, 'en', 'general', 'Pacific/Honolulu', 'Pacific/Honolulu', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1598, 'en', 'general', '(GMT/UTC -10:00)', '(GMT/UTC -10:00)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1599, 'en', 'general', 'Pacific/Kanton', 'Pacific/Kanton', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1600, 'en', 'general', 'Pacific/Kiritimati', 'Pacific/Kiritimati', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1601, 'en', 'general', '(GMT/UTC +14:00)', '(GMT/UTC +14:00)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1602, 'en', 'general', 'Pacific/Kosrae', 'Pacific/Kosrae', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1603, 'en', 'general', 'Pacific/Kwajalein', 'Pacific/Kwajalein', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1604, 'en', 'general', 'Pacific/Majuro', 'Pacific/Majuro', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1605, 'en', 'general', 'Pacific/Marquesas', 'Pacific/Marquesas', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1606, 'en', 'general', '(GMT/UTC -09:30)', '(GMT/UTC -09:30)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1607, 'en', 'general', 'Pacific/Midway', 'Pacific/Midway', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1608, 'en', 'general', '(GMT/UTC -11:00)', '(GMT/UTC -11:00)', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1609, 'en', 'general', 'Pacific/Nauru', 'Pacific/Nauru', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1610, 'en', 'general', 'Pacific/Niue', 'Pacific/Niue', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1611, 'en', 'general', 'Pacific/Norfolk', 'Pacific/Norfolk', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1612, 'en', 'general', 'Pacific/Noumea', 'Pacific/Noumea', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1613, 'en', 'general', 'Pacific/Pago_Pago', 'Pacific/Pago_Pago', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1614, 'en', 'general', 'Pacific/Palau', 'Pacific/Palau', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1615, 'en', 'general', 'Pacific/Pitcairn', 'Pacific/Pitcairn', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1616, 'en', 'general', 'Pacific/Pohnpei', 'Pacific/Pohnpei', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1617, 'en', 'general', 'Pacific/Port_Moresby', 'Pacific/Port_Moresby', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1618, 'en', 'general', 'Pacific/Rarotonga', 'Pacific/Rarotonga', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1619, 'en', 'general', 'Pacific/Saipan', 'Pacific/Saipan', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1620, 'en', 'general', 'Pacific/Tahiti', 'Pacific/Tahiti', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1621, 'en', 'general', 'Pacific/Tarawa', 'Pacific/Tarawa', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1622, 'en', 'general', 'Pacific/Tongatapu', 'Pacific/Tongatapu', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1623, 'en', 'general', 'Pacific/Wake', 'Pacific/Wake', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1624, 'en', 'general', 'Pacific/Wallis', 'Pacific/Wallis', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1625, 'en', 'general', '', '', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1626, 'en', 'general', 'Upload Image', 'Upload Image', '2026-03-18 23:58:56', '2026-03-18 23:58:56'),
+(1627, 'en', 'general', 'Warning! You are about to delete your account.', 'Warning! You are about to delete your account.', '2026-03-18 23:58:57', '2026-03-18 23:58:57'),
+(1628, 'en', 'general', 'This action can not be undo. This will permanently delete your account', 'This action can not be undo. This will permanently delete your account', '2026-03-18 23:58:57', '2026-03-18 23:58:57'),
+(1629, 'en', 'general', 'This ticket is assigned to you please respond.', 'This ticket is assigned to you please respond.', '2026-03-19 00:33:32', '2026-03-19 00:33:32'),
+(1630, 'en', 'general', 'Assigner', 'Assigner', '2026-03-19 00:33:32', '2026-03-19 00:33:32'),
+(1631, 'en', 'general', 'Assignee', 'Assignee', '2026-03-19 00:33:32', '2026-03-19 00:33:32'),
+(1632, 'en', 'general', 'Previous Tickets', 'Previous Tickets', '2026-03-19 00:33:32', '2026-03-19 00:33:32'),
+(1633, 'en', 'general', 'Employee', 'Employee', '2026-03-19 08:21:00', '2026-03-19 08:21:00');
+INSERT INTO `translates` (`id`, `lang_code`, `group_langname`, `key`, `value`, `created_at`, `updated_at`) VALUES
+(1634, 'en', 'general', 'Select Roles', 'Select Roles', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1635, 'en', 'general', 'Department', 'Department', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1636, 'en', 'general', 'Select Department', 'Select Department', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1637, 'en', 'general', '(Please copy the Password)', '(Please copy the Password)', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1638, 'en', 'general', 'Select Dashboard', 'Select Dashboard', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1639, 'en', 'general', 'Employee Dashboard', 'Employee Dashboard', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1640, 'en', 'general', 'Admin Dashboard', 'Admin Dashboard', '2026-03-19 08:21:00', '2026-03-19 08:21:00'),
+(1641, 'en', 'menu', 'Role & Permissions', 'Role & Permissions', '2026-03-19 08:21:14', '2026-03-19 08:21:14'),
+(1642, 'en', 'general', 'General Tickets', 'General Tickets', '2026-03-19 08:24:10', '2026-03-19 08:24:10'),
+(1643, 'en', 'general', 'Recents Tickets', 'Recents Tickets', '2026-03-19 08:24:10', '2026-03-19 08:24:10'),
+(1644, 'en', 'general', 'Unassigned Tickets', 'Unassigned Tickets', '2026-03-19 08:24:10', '2026-03-19 08:24:10'),
+(1645, 'en', 'general', 'Loading...', 'Loading...', '2026-03-19 08:24:10', '2026-03-19 08:24:10'),
+(1646, 'en', 'general', 'EMPID-001', 'EMPID-001', '2026-03-19 08:27:16', '2026-03-19 08:27:16'),
+(1647, 'en', 'general', 'Select Status', 'Select Status', '2026-03-19 08:27:16', '2026-03-19 08:27:16'),
+(1648, 'en', 'alerts', 'Updated Successfully!', 'Updated Successfully!', '2026-03-19 08:27:57', '2026-03-19 08:27:57'),
+(1649, 'en', 'general', 'Are you sure you want to unassign this agent?', 'Are you sure you want to unassign this agent?', '2026-03-19 08:29:30', '2026-03-19 08:29:30'),
+(1650, 'en', 'general', 'This agent may no longer exist for this ticket.', 'This agent may no longer exist for this ticket.', '2026-03-19 08:29:30', '2026-03-19 08:29:30'),
+(1651, 'en', 'general', 'Import Customer List', 'Import Customer List', '2026-03-19 08:46:11', '2026-03-19 08:46:11'),
+(1652, 'en', 'general', 'Login as', 'Login as', '2026-03-19 08:46:11', '2026-03-19 08:46:11'),
+(1653, 'en', 'general', 'Verified', 'Verified', '2026-03-19 08:46:11', '2026-03-19 08:46:11'),
+(1654, 'en', 'general', 'Tickets History', 'Tickets History', '2026-03-19 08:46:11', '2026-03-19 08:46:11'),
+(1655, 'en', 'general', 'Unverified', 'Unverified', '2026-03-19 08:46:11', '2026-03-19 08:46:11'),
+(1656, 'en', 'alerts', 'This is to resend email verification link to the customer', 'This is to resend email verification link to the customer', '2026-03-19 08:46:12', '2026-03-19 08:46:12'),
+(1657, 'en', 'general', 'The password must be at least 8 characters.', 'The password must be at least 8 characters.', '2026-03-19 08:47:41', '2026-03-19 08:47:41'),
+(1658, 'en', 'general', 'These credentials do not match our records.', 'These credentials do not match our records.', '2026-03-19 08:53:04', '2026-03-19 08:53:04'),
+(1659, 'en', 'general', 'Last Update', 'Last Update', '2026-03-20 06:51:09', '2026-03-20 06:51:09'),
+(1660, 'en', 'general', 'Last Reply', 'Last Reply', '2026-03-20 23:23:56', '2026-03-20 23:23:56'),
+(1661, 'en', 'general', 'Un-Answered', 'Un-Answered', '2026-03-21 00:10:55', '2026-03-21 00:10:55');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `userratings`
+-- Table structure for table `userratings`
 --
 
 CREATE TABLE `userratings` (
@@ -3255,7 +4284,7 @@ CREATE TABLE `userratings` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -3285,16 +4314,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `empid`, `name`, `gender`, `departments`, `dashboard`, `provider_id`, `email`, `phone`, `skills`, `languagues`, `status`, `image`, `verified`, `password`, `country`, `timezone`, `darkmode`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Muhammad', 'Fauzi', NULL, 'Muhammad Fauzi', NULL, NULL, 'Admin', NULL, 'muhammad.fauzi1000@Gmail.com', NULL, NULL, NULL, '1', NULL, 1, '$2y$10$k0nzICAnUkyMpTD6hdUn.O3Es493HMZJ0HISHTRUS9c2Madv897fC', 'United States', 'America/New_York', NULL, NULL, '2026-03-05 06:06:04', '2026-03-05 06:06:04');
+(1, 'Muhammad', 'Fauzi', NULL, 'Muhammad Fauzi', NULL, NULL, 'Admin', NULL, 'muhammad.fauzi1000@Gmail.com', NULL, NULL, NULL, '1', NULL, 1, '$2y$10$jHYrCOe.ovve.Dq3sabcUeR9z1OzwdzVX4KhTTOJpJ4z5JLbw5LAG', 'United States', 'America/New_York', NULL, 'fhCTjkZOl7ortjETFLj7TKhqOLWmOedRivpUatlsRsofH17mGibaYOab72F9', '2026-03-05 06:06:04', '2026-03-19 04:42:33'),
+(2, 'Helpdesk', 'DNS', 'DNS-01', 'Helpdesk DNS', NULL, NULL, 'Employee', NULL, 'helpdesk@deltanafsolution.com', NULL, NULL, NULL, '1', NULL, 1, '$2y$10$Aqlz.XCrTcsCpX9e6cQey.XprcbX.cwrPAxAeNARwweHItrbwrdTy', 'Indonesia', 'Asia/Jakarta', 0, 'LK9DHoLuTjXRw1aZ6s3ZxdRydLSJJi6hTdxiIm1rt2Jy49OpZkn0go0qRhBD', '2026-03-19 08:23:42', '2026-03-19 08:28:45');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `usersettings`
+-- Table structure for table `usersettings`
 --
 
 CREATE TABLE `usersettings` (
@@ -3312,16 +4342,17 @@ CREATE TABLE `usersettings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `usersettings`
+-- Dumping data for table `usersettings`
 --
 
 INSERT INTO `usersettings` (`id`, `users_id`, `ticket_refresh`, `emailnotifyon`, `star5`, `star4`, `star3`, `star2`, `star1`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, 1, 0, 0, 0, 0, 0, '2026-03-05 06:06:04', '2026-03-05 06:06:04');
+(1, 1, NULL, 1, 0, 0, 0, 0, 0, '2026-03-05 06:06:04', '2026-03-05 06:06:04'),
+(2, 2, NULL, 1, 0, 0, 0, 0, 0, '2026-03-19 08:23:42', '2026-03-19 08:23:42');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `verify_otps`
+-- Table structure for table `verify_otps`
 --
 
 CREATE TABLE `verify_otps` (
@@ -3336,7 +4367,7 @@ CREATE TABLE `verify_otps` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `verify_users`
+-- Table structure for table `verify_users`
 --
 
 CREATE TABLE `verify_users` (
@@ -3352,76 +4383,76 @@ CREATE TABLE `verify_users` (
 --
 
 --
--- Indeks untuk tabel `announcements`
+-- Indexes for table `announcements`
 --
 ALTER TABLE `announcements`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `apptitles`
+-- Indexes for table `apptitles`
 --
 ALTER TABLE `apptitles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `articles`
+-- Indexes for table `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `articles_category_id_foreign` (`category_id`);
 
 --
--- Indeks untuk tabel `articles_likes`
+-- Indexes for table `articles_likes`
 --
 ALTER TABLE `articles_likes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `article_comments`
+-- Indexes for table `article_comments`
 --
 ALTER TABLE `article_comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `article_replies`
+-- Indexes for table `article_replies`
 --
 ALTER TABLE `article_replies`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `bussinesshours`
+-- Indexes for table `bussinesshours`
 --
 ALTER TABLE `bussinesshours`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `callactions`
+-- Indexes for table `callactions`
 --
 ALTER TABLE `callactions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `cannedmessages`
+-- Indexes for table `cannedmessages`
 --
 ALTER TABLE `cannedmessages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `categories_name_unique` (`name`);
 
 --
--- Indeks untuk tabel `category_category_user`
+-- Indexes for table `category_category_user`
 --
 ALTER TABLE `category_category_user`
   ADD PRIMARY KEY (`category_id`,`category_user_id`),
   ADD KEY `category_category_user_category_user_id_foreign` (`category_user_id`);
 
 --
--- Indeks untuk tabel `comments`
+-- Indexes for table `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
@@ -3429,140 +4460,140 @@ ALTER TABLE `comments`
   ADD KEY `comments_cust_id_foreign` (`cust_id`);
 
 --
--- Indeks untuk tabel `contactforms`
+-- Indexes for table `contactforms`
 --
 ALTER TABLE `contactforms`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `countries`
+-- Indexes for table `countries`
 --
 ALTER TABLE `countries`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `customcssjs`
+-- Indexes for table `customcssjs`
 --
 ALTER TABLE `customcssjs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `customers_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `customer_settings`
+-- Indexes for table `customer_settings`
 --
 ALTER TABLE `customer_settings`
   ADD PRIMARY KEY (`id`),
   ADD KEY `customer_settings_custs_id_foreign` (`custs_id`);
 
 --
--- Indeks untuk tabel `customfields`
+-- Indexes for table `customfields`
 --
 ALTER TABLE `customfields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `customizeerrors`
+-- Indexes for table `customizeerrors`
 --
 ALTER TABLE `customizeerrors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `departments`
+-- Indexes for table `departments`
 --
 ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `email_templates`
+-- Indexes for table `email_templates`
 --
 ALTER TABLE `email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `employeeratings`
+-- Indexes for table `employeeratings`
 --
 ALTER TABLE `employeeratings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `envatoapitoken`
+-- Indexes for table `envatoapitoken`
 --
 ALTER TABLE `envatoapitoken`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `envatocategoryassign`
+-- Indexes for table `envatocategoryassign`
 --
 ALTER TABLE `envatocategoryassign`
   ADD PRIMARY KEY (`id`),
   ADD KEY `envatocategoryassign_category_id_foreign` (`category_id`);
 
 --
--- Indeks untuk tabel `faq_categories`
+-- Indexes for table `faq_categories`
 --
 ALTER TABLE `faq_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `faq_list`
+-- Indexes for table `faq_list`
 --
 ALTER TABLE `faq_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `feature_boxes`
+-- Indexes for table `feature_boxes`
 --
 ALTER TABLE `feature_boxes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `footertexts`
+-- Indexes for table `footertexts`
 --
 ALTER TABLE `footertexts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `groups`
+-- Indexes for table `groups`
 --
 ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `groups_groupname_unique` (`groupname`);
 
 --
--- Indeks untuk tabel `groups_categories`
+-- Indexes for table `groups_categories`
 --
 ALTER TABLE `groups_categories`
   ADD PRIMARY KEY (`group_id`,`category_id`),
   ADD KEY `groups_categories_category_id_foreign` (`category_id`);
 
 --
--- Indeks untuk tabel `groups_users`
+-- Indexes for table `groups_users`
 --
 ALTER TABLE `groups_users`
   ADD PRIMARY KEY (`groups_id`,`users_id`),
   ADD KEY `groups_users_users_id_foreign` (`users_id`);
 
 --
--- Indeks untuk tabel `i_p_l_i_s_t_s`
+-- Indexes for table `i_p_l_i_s_t_s`
 --
 ALTER TABLE `i_p_l_i_s_t_s`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `languages`
+-- Indexes for table `languages`
 --
 ALTER TABLE `languages`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `languages_languagecode_unique` (`languagecode`);
 
 --
--- Indeks untuk tabel `media`
+-- Indexes for table `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`),
@@ -3570,94 +4601,94 @@ ALTER TABLE `media`
   ADD KEY `media_model_type_model_id_index` (`model_type`,`model_id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `model_has_permissions`
+-- Indexes for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`model_id`,`model_type`),
   ADD KEY `model_has_permissions_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indeks untuk tabel `model_has_roles`
+-- Indexes for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD PRIMARY KEY (`role_id`,`model_id`,`model_type`),
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
--- Indeks untuk tabel `notifications`
+-- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
 
 --
--- Indeks untuk tabel `pages`
+-- Indexes for table `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `permissions_name_guard_name_unique` (`name`,`guard_name`);
 
 --
--- Indeks untuk tabel `projects`
+-- Indexes for table `projects`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `projects_name_unique` (`name`);
 
 --
--- Indeks untuk tabel `projects_categories`
+-- Indexes for table `projects_categories`
 --
 ALTER TABLE `projects_categories`
   ADD PRIMARY KEY (`projects_id`,`category_id`),
   ADD KEY `projects_categories_category_id_foreign` (`category_id`);
 
 --
--- Indeks untuk tabel `ratingtokens`
+-- Indexes for table `ratingtokens`
 --
 ALTER TABLE `ratingtokens`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `roles_name_guard_name_unique` (`name`,`guard_name`);
 
 --
--- Indeks untuk tabel `role_has_permissions`
+-- Indexes for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD PRIMARY KEY (`permission_id`,`role_id`),
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
--- Indeks untuk tabel `sendmails`
+-- Indexes for table `sendmails`
 --
 ALTER TABLE `sendmails`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sendmails_user_id_foreign` (`user_id`);
 
 --
--- Indeks untuk tabel `senduserlists`
+-- Indexes for table `senduserlists`
 --
 ALTER TABLE `senduserlists`
   ADD PRIMARY KEY (`id`),
@@ -3666,58 +4697,58 @@ ALTER TABLE `senduserlists`
   ADD KEY `senduserlists_tocust_id_foreign` (`tocust_id`);
 
 --
--- Indeks untuk tabel `seosettings`
+-- Indexes for table `seosettings`
 --
 ALTER TABLE `seosettings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `social_auth_settings`
+-- Indexes for table `social_auth_settings`
 --
 ALTER TABLE `social_auth_settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `subcategoryschild`
+-- Indexes for table `subcategoryschild`
 --
 ALTER TABLE `subcategoryschild`
   ADD PRIMARY KEY (`category_id`,`subcategory_id`),
   ADD KEY `subcategoryschild_subcategory_id_foreign` (`subcategory_id`);
 
 --
--- Indeks untuk tabel `subcategorysd`
+-- Indexes for table `subcategorysd`
 --
 ALTER TABLE `subcategorysd`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `testimonials`
+-- Indexes for table `testimonials`
 --
 ALTER TABLE `testimonials`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ticketassignchildren`
+-- Indexes for table `ticketassignchildren`
 --
 ALTER TABLE `ticketassignchildren`
   ADD PRIMARY KEY (`toassignuser_id`,`ticket_id`),
   ADD KEY `ticketassignchildren_ticket_id_foreign` (`ticket_id`);
 
 --
--- Indeks untuk tabel `tickethistories`
+-- Indexes for table `tickethistories`
 --
 ALTER TABLE `tickethistories`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tickethistories_ticket_id_foreign` (`ticket_id`);
 
 --
--- Indeks untuk tabel `ticketnotes`
+-- Indexes for table `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
   ADD PRIMARY KEY (`id`),
@@ -3725,7 +4756,7 @@ ALTER TABLE `ticketnotes`
   ADD KEY `ticketnotes_user_id_foreign` (`user_id`);
 
 --
--- Indeks untuk tabel `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`),
@@ -3734,492 +4765,492 @@ ALTER TABLE `tickets`
   ADD KEY `tickets_category_id_foreign` (`category_id`);
 
 --
--- Indeks untuk tabel `ticketsccemails`
+-- Indexes for table `ticketsccemails`
 --
 ALTER TABLE `ticketsccemails`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `ticket_customfields`
+-- Indexes for table `ticket_customfields`
 --
 ALTER TABLE `ticket_customfields`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `timezone`
+-- Indexes for table `timezone`
 --
 ALTER TABLE `timezone`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `timezones`
+-- Indexes for table `timezones`
 --
 ALTER TABLE `timezones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `translates`
+-- Indexes for table `translates`
 --
 ALTER TABLE `translates`
   ADD PRIMARY KEY (`id`),
   ADD KEY `translates_lang_code_foreign` (`lang_code`);
 
 --
--- Indeks untuk tabel `userratings`
+-- Indexes for table `userratings`
 --
 ALTER TABLE `userratings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- Indeks untuk tabel `usersettings`
+-- Indexes for table `usersettings`
 --
 ALTER TABLE `usersettings`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usersettings_users_id_foreign` (`users_id`);
 
 --
--- Indeks untuk tabel `verify_otps`
+-- Indexes for table `verify_otps`
 --
 ALTER TABLE `verify_otps`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `verify_users`
+-- Indexes for table `verify_users`
 --
 ALTER TABLE `verify_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `announcements`
+-- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `apptitles`
+-- AUTO_INCREMENT for table `apptitles`
 --
 ALTER TABLE `apptitles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `articles`
+-- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `articles_likes`
+-- AUTO_INCREMENT for table `articles_likes`
 --
 ALTER TABLE `articles_likes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT untuk tabel `article_comments`
+-- AUTO_INCREMENT for table `article_comments`
 --
 ALTER TABLE `article_comments`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `article_replies`
+-- AUTO_INCREMENT for table `article_replies`
 --
 ALTER TABLE `article_replies`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `bussinesshours`
+-- AUTO_INCREMENT for table `bussinesshours`
 --
 ALTER TABLE `bussinesshours`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `callactions`
+-- AUTO_INCREMENT for table `callactions`
 --
 ALTER TABLE `callactions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `cannedmessages`
+-- AUTO_INCREMENT for table `cannedmessages`
 --
 ALTER TABLE `cannedmessages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `comments`
+-- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `contactforms`
+-- AUTO_INCREMENT for table `contactforms`
 --
 ALTER TABLE `contactforms`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `countries`
+-- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=250;
 
 --
--- AUTO_INCREMENT untuk tabel `customcssjs`
+-- AUTO_INCREMENT for table `customcssjs`
 --
 ALTER TABLE `customcssjs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `customer_settings`
+-- AUTO_INCREMENT for table `customer_settings`
 --
 ALTER TABLE `customer_settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `customfields`
+-- AUTO_INCREMENT for table `customfields`
 --
 ALTER TABLE `customfields`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `customizeerrors`
+-- AUTO_INCREMENT for table `customizeerrors`
 --
 ALTER TABLE `customizeerrors`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `departments`
+-- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `email_templates`
+-- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT untuk tabel `employeeratings`
+-- AUTO_INCREMENT for table `employeeratings`
 --
 ALTER TABLE `employeeratings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `envatoapitoken`
+-- AUTO_INCREMENT for table `envatoapitoken`
 --
 ALTER TABLE `envatoapitoken`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `envatocategoryassign`
+-- AUTO_INCREMENT for table `envatocategoryassign`
 --
 ALTER TABLE `envatocategoryassign`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `faq_categories`
+-- AUTO_INCREMENT for table `faq_categories`
 --
 ALTER TABLE `faq_categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `faq_list`
+-- AUTO_INCREMENT for table `faq_list`
 --
 ALTER TABLE `faq_list`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `feature_boxes`
+-- AUTO_INCREMENT for table `feature_boxes`
 --
 ALTER TABLE `feature_boxes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `footertexts`
+-- AUTO_INCREMENT for table `footertexts`
 --
 ALTER TABLE `footertexts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `groups`
+-- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `i_p_l_i_s_t_s`
+-- AUTO_INCREMENT for table `i_p_l_i_s_t_s`
 --
 ALTER TABLE `i_p_l_i_s_t_s`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `languages`
+-- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `media`
+-- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT untuk tabel `pages`
+-- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
--- AUTO_INCREMENT untuk tabel `projects`
+-- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `ratingtokens`
+-- AUTO_INCREMENT for table `ratingtokens`
 --
 ALTER TABLE `ratingtokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `roles`
---
-ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `sendmails`
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `sendmails`
 --
 ALTER TABLE `sendmails`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `senduserlists`
+-- AUTO_INCREMENT for table `senduserlists`
 --
 ALTER TABLE `senduserlists`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `seosettings`
+-- AUTO_INCREMENT for table `seosettings`
 --
 ALTER TABLE `seosettings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
--- AUTO_INCREMENT untuk tabel `social_auth_settings`
+-- AUTO_INCREMENT for table `social_auth_settings`
 --
 ALTER TABLE `social_auth_settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `subcategorysd`
+-- AUTO_INCREMENT for table `subcategorysd`
 --
 ALTER TABLE `subcategorysd`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `testimonials`
+-- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tickethistories`
+-- AUTO_INCREMENT for table `tickethistories`
 --
 ALTER TABLE `tickethistories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `ticketnotes`
+-- AUTO_INCREMENT for table `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tickets`
+-- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `ticketsccemails`
+-- AUTO_INCREMENT for table `ticketsccemails`
 --
 ALTER TABLE `ticketsccemails`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `ticket_customfields`
+-- AUTO_INCREMENT for table `ticket_customfields`
 --
 ALTER TABLE `ticket_customfields`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `timezone`
+-- AUTO_INCREMENT for table `timezone`
 --
 ALTER TABLE `timezone`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=426;
 
 --
--- AUTO_INCREMENT untuk tabel `timezones`
+-- AUTO_INCREMENT for table `timezones`
 --
 ALTER TABLE `timezones`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `translates`
+-- AUTO_INCREMENT for table `translates`
 --
 ALTER TABLE `translates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=736;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1662;
 
 --
--- AUTO_INCREMENT untuk tabel `userratings`
+-- AUTO_INCREMENT for table `userratings`
 --
 ALTER TABLE `userratings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `usersettings`
+-- AUTO_INCREMENT for table `usersettings`
 --
 ALTER TABLE `usersettings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `verify_otps`
+-- AUTO_INCREMENT for table `verify_otps`
 --
 ALTER TABLE `verify_otps`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `verify_users`
+-- AUTO_INCREMENT for table `verify_users`
 --
 ALTER TABLE `verify_users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `category_category_user`
+-- Constraints for table `category_category_user`
 --
 ALTER TABLE `category_category_user`
   ADD CONSTRAINT `category_category_user_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `category_category_user_category_user_id_foreign` FOREIGN KEY (`category_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `comments`
+-- Constraints for table `comments`
 --
 ALTER TABLE `comments`
   ADD CONSTRAINT `1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `comments_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `customer_settings`
+-- Constraints for table `customer_settings`
 --
 ALTER TABLE `customer_settings`
   ADD CONSTRAINT `customer_settings_custs_id_foreign` FOREIGN KEY (`custs_id`) REFERENCES `customers` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `envatocategoryassign`
+-- Constraints for table `envatocategoryassign`
 --
 ALTER TABLE `envatocategoryassign`
   ADD CONSTRAINT `envatocategoryassign_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `groups_categories`
+-- Constraints for table `groups_categories`
 --
 ALTER TABLE `groups_categories`
   ADD CONSTRAINT `groups_categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `groups_categories_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `groups_users`
+-- Constraints for table `groups_users`
 --
 ALTER TABLE `groups_users`
   ADD CONSTRAINT `groups_users_groups_id_foreign` FOREIGN KEY (`groups_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `groups_users_users_id_foreign` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `model_has_permissions`
+-- Constraints for table `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `model_has_roles`
+-- Constraints for table `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `projects_categories`
+-- Constraints for table `projects_categories`
 --
 ALTER TABLE `projects_categories`
   ADD CONSTRAINT `projects_categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `projects_categories_projects_id_foreign` FOREIGN KEY (`projects_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `role_has_permissions`
+-- Constraints for table `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `sendmails`
+-- Constraints for table `sendmails`
 --
 ALTER TABLE `sendmails`
   ADD CONSTRAINT `sendmails_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `senduserlists`
+-- Constraints for table `senduserlists`
 --
 ALTER TABLE `senduserlists`
   ADD CONSTRAINT `senduserlists_mail_id_foreign` FOREIGN KEY (`mail_id`) REFERENCES `sendmails` (`id`),
@@ -4227,46 +5258,46 @@ ALTER TABLE `senduserlists`
   ADD CONSTRAINT `senduserlists_touser_id_foreign` FOREIGN KEY (`touser_id`) REFERENCES `users` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `subcategoryschild`
+-- Constraints for table `subcategoryschild`
 --
 ALTER TABLE `subcategoryschild`
   ADD CONSTRAINT `subcategoryschild_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `subcategoryschild_subcategory_id_foreign` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategorysd` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `ticketassignchildren`
+-- Constraints for table `ticketassignchildren`
 --
 ALTER TABLE `ticketassignchildren`
   ADD CONSTRAINT `ticketassignchildren_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ticketassignchildren_toassignuser_id_foreign` FOREIGN KEY (`toassignuser_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tickethistories`
+-- Constraints for table `tickethistories`
 --
 ALTER TABLE `tickethistories`
   ADD CONSTRAINT `tickethistories_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `ticketnotes`
+-- Constraints for table `ticketnotes`
 --
 ALTER TABLE `ticketnotes`
   ADD CONSTRAINT `ticketnotes_ticket_id_foreign` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `ticketnotes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tickets`
+-- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `tickets_cust_id_foreign` FOREIGN KEY (`cust_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `translates`
+-- Constraints for table `translates`
 --
 ALTER TABLE `translates`
   ADD CONSTRAINT `translates_lang_code_foreign` FOREIGN KEY (`lang_code`) REFERENCES `languages` (`languagecode`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `usersettings`
+-- Constraints for table `usersettings`
 --
 ALTER TABLE `usersettings`
   ADD CONSTRAINT `usersettings_users_id_foreign` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`);
